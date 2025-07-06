@@ -1,0 +1,25 @@
+{
+  "name": "alice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "css": "npx @tailwindcss/cli -i ./tailwind.css -o ./css/styles.css --minify --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorgodoka/guiying-yalis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/victorgodoka/guiying-yalis/issues"
+  },
+  "homepage": "https://github.com/victorgodoka/guiying-yalis#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11",
+    "tailwindcss": "^4.1.11"
+  }
+}
