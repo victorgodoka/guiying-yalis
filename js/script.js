@@ -1,0 +1,100 @@
+"use strict";(()=>{var r=e=>e?e.replace(/\+?\d+(\.\d+)?%?/g,n=>`<span class='text-[#eec554]' style='font-weight: 800;'>${n}</span>`).replace(/Fire DMG/g,"<span class='text-red-400'>Fire DMG</span>"):"";var o=e=>`
+  <article class="bg-[#2c2d33] border-[#33343a] border-2" ${"isEidolon"in e&&e.isEidolon?`data-eidolon="${e.type.toLowerCase()}"`:""}>
+    <div class="border-[#33343a] border-b flex items-center">
+      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${e.type}</div>
+      <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
+        <h3 class="text-xl opacity-90" style="font-weight: 800;">${e.name}</h3>
+        ${e.tg?`<p class="text-sm opacity-75" style="font-weight: 400;">${e.tg}</p>`:""}
+      </div>
+    </div>
+    ${e.energyBreak?`<div class="grid grid-cols-2 py-2 px-2 bg-[#33343a]">
+      <p class="text-sm text-zinc-300">Energy Gain: <span style="font-weight: 800;">${e.energyBreak[0]}</span></p>
+      <p class="text-sm text-zinc-300">Break: <span style="font-weight: 800;">${e.energyBreak[1]}</span></p>
+    </div>`:""}
+    <div class="p-4">
+      ${r(e.description)}
+    </div>
+    ${"enhanced"in e&&e.enhanced?`
+      <div class="border-[#33343a] border-t-2 flex items-center">
+        <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${e.enhanced.type}</div>
+        <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
+          <h4 class="text-xl opacity-90" style="font-weight: 800;">${e.enhanced.name}</h4>
+          ${e.enhanced.tg?`<p class="text-sm opacity-75" style="font-weight: 400;">${e.enhanced.tg}</p>`:""}
+        </div>
+      </div>
+      ${e.enhanced.energyBreak?`<div class="grid grid-cols-2 py-2 px-2 bg-[#33343a]">
+        <p class="text-sm text-zinc-300">Energy Gain: <span style="font-weight: 800;">${e.enhanced.energyBreak[0]}</span></p>
+        <p class="text-sm text-zinc-300">Break: <span style="font-weight: 800;">${e.enhanced.energyBreak[1]}</span></p>
+      </div>`:""}
+      <div class="p-4">
+        ${r(e.enhanced.description)}
+      </div>
+    `:""}
+  </article>
+`,h=e=>`
+  <div class="flex items-center justify-center gap-2 border-[#33343a] border bg-[#2c2d33] w-full p-2 text-lg">
+    <img src="${e.icon}" alt="${e.type}" class="w-8 h-8">
+    <p>${r(`${e.type} ${e.value}`)}</p>
+  </div>
+`,d=(e,n=!1)=>`
+  <ul class="${n?"grid grid-cols-3":""}">
+    <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
+      <div class="flex items-center p-1">
+        <img src="images/hp.webp" alt="HP" class="w-8 h-8" />
+        <span>HP</span>
+      </div>
+      <p>${e.HP}</p>
+    </li>
+    <li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
+      <div class="flex items-center p-1">
+        <img src="images/atk.webp" alt="ATK" class="w-8 h-8" />
+        <span>ATK</span>
+      </div>
+      <p>${e.ATK}</p>
+    </li>
+    <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
+      <div class="flex items-center p-1">
+        <img src="images/def.webp" alt="DEF" class="w-8 h-8" />
+        <span>DEF</span>
+      </div>
+      <p>${e.DEF}</p>
+    </li>
+    ${e.SPD?`<li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
+      <div class="flex items-center p-1">
+        <img src="images/spd.webp" alt="Speed" class="w-8 h-8" />
+        <span>Speed</span>
+      </div>
+      <p>${e.SPD}</p>
+    </li>`:""}
+  </ul>
+`,g=e=>`
+  <article class="bg-[#2c2d33] border-[#33343a] border-2 relative">
+    <img src="images/nihility.webp" alt="Light cone path" class="w-8 absolute z-50 right-8 top-2 opacity-40">
+    <div class="border-[#33343a] border-b flex items-center">
+      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
+      <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
+        <h3 class="text-xl opacity-90" style="font-weight: 800;">${e.name}</h3>
+        <p class="text-sm" style="font-weight: 400;">${e.tier}</p>
+      </div>
+    </div>
+    <div class="p-4">
+      <div class="mb-4">
+        ${r(e.effect)}
+      </div>
+      <div class="mb-4">
+        ${d(e.stats,!0)}
+      </div>
+      <div class="grid grid-cols-2 gap-2">
+        <img src="${e.image}" alt="${e.name}" class="w-full h-auto object-cover">
+        <div class="text-sm space-y-2">
+          ${e.lore.map(n=>`<p>${n}</p>`).join("")}
+        </div>
+      </div>
+    </div>
+  </article>
+`;var i={name:"Guiying Yalis",stats:{HP:1023,ATK:617,DEF:396,SPD:102},description:`
+      <span class="font-bold text-red-400">Guiying Yalis</span> is a 5\u2605 character from the <span
+            class="font-bold text-red-400">Fire</span> element who follows the <span
+            class="font-bold text-[#7e74eb]">Path
+            of Nihility</span>. Bearing the name of a forgotten dynasty, <span class="font-bold text-red-400">Guiying</span> dances through battlefields like a flame-kissed petal caught in the wind. Her elegance hides a dangerous mastery over Burn and Sunburn \u2014 curses that blossom into agony. To fight her is to be trapped in a season of fire and fleeting beauty, where spring never truly ends.
+      `,lightCones:[{name:"Dance Beneath Crimson Blossoms",image:"images/lc.png",tier:"\u2B50\u2B50\u2B50\u2B50\u2B50",lore:["In the floating gardens of Xianzhou, where sakura trees bloom not once a year, but with every breath of wind, there lived a girl whose fan bore both fire and fragrance.","They called her Guiying Yalis, the Crimson Petal. Her steps were too soft for war, her gaze too serene for vengeance \u2014 and yet, the world would soon know her fury.","Long ago, she danced beneath the tutelage of the Arbiter-General himself, Jing Yuan, who taught her not the weight of swords, but the art of timing.","A blade is swift, he once told her,","But a flame is patient \u2014 and far more enduring.","She listened. She learned.","And now, she fought.","On a night where no stars shone above Xianzhou, shadows fell upon a distant border village. Mara-stricken beasts crawled from fractured dreams, gnawing at the roots of ancient plum trees. Screams rose like incense.","Then \u2014 silence.","A single gust stirred the sakura trees. A fan unfolded.","From the darkness, she stepped. Her crimson ribbons flowed like brushstrokes in the air, her platinum hair catching the moonlight. The moment her feet touched the earth, flames followed like obedient disciples.","She spun.","And the petals obeyed.","Fire licked at the enemies' limbs \u2014 not with rage, but with ritual. Each Burn a calligraphy mark, each Sunburn a final signature.","They writhed. She danced.","Let spring bloom in ash, she whispered,","And may all things cruel learn to fear beauty.","When the final ember died, and the sakura once again kissed the soil in silence, she sheathed her fan with the grace of an empress.","She did not stay for praise. She never did.","For Guiying Yalis was no hero.","She was a season \u2014 brief, radiant, and unforgettable.","And like spring in Xianzhou\u2026","She always returned when the world grew cold."],effect:"Increases the wearer's Effect Hit Rate by 36/48/60/72/84%. When the wearer inflicts DoT, gain 1 stack of Solar Bloom (max 3 stacks). Each stack increases DoT dealt by 10/15/20/25/25%. At 3 stacks, the wearer's SPD increases by 10/12.5/15/17.5/20%. Additionally, when the wearer deals Fire DMG to enemies, there is a 75% base chance to extend all DoT and debuffs effects currently on the field by 1 turn.",stats:{HP:1058,ATK:635,DEF:396}},{name:"Embers of Spring, Cradled in Song",image:"images/lc2.png",tier:"\u2B50\u2B50\u2B50\u2B50",lore:["In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor \u2014 shadows of sakura that bloomed only in the spring of memory.","There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.","Nestled in her arms was a girl no older than four, fast asleep \u2014 her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.","She was no child of hers by blood.","But war had a way of making orphans.","And Guiying, the Crimson Petal, had a heart that burned not only with flame\u2026 but with compassion.",`"You are the first light," she whispered, stroking the child's hair,`,'"A bud before the bloom. Rest now. The world can wait."',"As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum \u2014 soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees\u2026 before fate set her on the path of fire.","Her voice, low and warm, danced like incense through the air:",'"Close your eyes, my springtime star,',"The moon will guard you from afar.","Drift like petals, float like flame,",`Tomorrow's wind will know your name\u2026"`,"The child stirred, pressing closer.","Guiying smiled.","In that moment, she was not the feared flame that scorched the battlefield.","Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.","She was simply Guiying \u2014","A woman who bore the weight of countless battles\u2026","And still found time to sing to a sleeping soul.","Because even in Xianzhou, where stars drift and wars rage\u2026","The truest strength is found not in fire or fury \u2014","But in the quiet rhythm of a lullaby."],effect:"Increases the wearer's Break Effect by 16/20/24/28/32% and DoT dealt by 24/30/36/42/48%. After inflicting damage with the wearer's Ultimate or Follow-Up ATK, restores 4/8/12/16/20 Energy and increases ATK by 12/18/24/30/36% for 2 turns.",stats:{HP:948,ATK:579,DEF:348}}],skills:[{type:"Basic ATK",name:"Solar Bloom",description:"Deals Fire DMG equal to 100% of Guiying's ATK to a single enemy.",tg:"Single Target",energyBreak:[20,10],enhanced:{type:"<p style='line-height: 1'>Basic ATK<br /><span class='text-xs'>Enhanced</span></p>",name:"Solar Flare",description:"Deals Fire DMG equal to 150% of Guiying's ATK to one designated enemy. Deals Fire DMG equal to 75% of Guiying's ATK to adjacent enemies. Any Burned enemies will take 100% more DMG during their next turn.",tg:"Blast",energyBreak:[30,"10 + 5 adjacent"]}},{type:"Skill",name:"Cherry Blossom Burst",description:"Deals Fire DMG equal to 210% of Guiying's ATK to a single enemy and deals Fire DMG equal to 85% of Guiying's ATK to any adjacent enemies with a 100% base chance to Burn the target and adjacent targets. When Burned, enemies will take a Fire DoT equal to 325% of Guiying's ATK at the beginning of each turn, lasting for 2 turn(s).",tg:"Blast",energyBreak:[30,"20 + 10 adjacent"]},{type:"Ultimate",name:"Spring Sun Radiance",description:"Deals Fire DMG equal to 180% of Guiying's ATK to all enemies. Deals 50% increased Fire DMG to any enemies that are currently Burned. Has a 90% base chance to inflict Burned enemies with Sunburn for 2 turn(s). Enemies inflicted with Sunburn will take 33% more DMG in their turn.",tg:"AoE | <span class='text-[#eec554]'>120 energy cost</span>",energyBreak:[5,20]},{type:"Talent",name:"Sakura Wind Dance",description:`After Guiying uses her Ultimate, her Basic ATK "Solar Bloom" is enhanced to "Solar Flare". After her Enhanced Basic ATK's "Solar Flare" hits a Burning enemy target, the Burn status will immediately deal DMG for 1 time equal to 125% of the original DMG to the target. If the target has Sunburn, this effect is doubled.`,tg:"Enchance",energyBreak:[0,"-"]},{type:"Technique",name:"Spring Awakening",description:"Immediately attacks all enemies within a set range. After entering battle, deals Fire DMG equal to 60% of Guiying's ATK to all enemies, with a 100% base chance to inflict Burn on every enemy target for 2 turn(s). Enemies with Fire weakness also are inflicted with Sunburn for 1 turn.",tg:"",energyBreak:[0,"-"]}],traces:[{type:"<p style='line-height: 1'>A2<br /><span class='text-xs'>Major Trace</span></p>",name:"Spring Dawn Rush",description:"When the battle begins, Guiying's action is advanced forward by 40% of her Effect Hit Rate.",tg:"",energyBreak:null},{type:"<p style='line-height: 1'>A4<br /><span class='text-xs'>Major Trace</span></p>",name:"Cherry Blossom Bloom",description:"Increases this unit's DMG by an amount equal to 30% of Effect Hit Rate, up to a maximum DMG increase of 40%. At 5 stacks of Petal Dance, this effect is doubled, and Burn damage is increased by 100%.",tg:"",energyBreak:null},{type:"<p style='line-height: 1'>A6<br /><span class='text-xs'>Major Trace</span></p>",name:"Sakura Wind Dance",description:`Whenever Guiying deals damage to an enemy, she gains 1 stack of Petal Dance up to 5 stacks. For each stack, she gains 12% SPD. At 5 stacks, she enters the "Sakura Wind Dance" state until she loses 1 or more stacks. While in the "Sakura Wind Dance" state, she gains an additional 40% SPD, then for every 1 SPD above 125, increases Guiying's DoT DMG by 8%.`,tg:"",energyBreak:null}],minorTraces:[{type:"ATK",icon:"images/atk.webp",value:"+28%"},{type:"Effect Hit Rate",isEidolon:!0,icon:"images/ehr.webp",value:"+16.4%"},{type:"Fire DMG",icon:"images/fire.webp",value:"+14.4%"}],eidolons:[{type:"E1",isEidolon:!0,name:"Spring Breeze",description:"When Guiying gains Petal Dance stacks, she also gains 1 stack of Spring Breeze. Each stack of Spring Breeze increases her Effect Hit Rate by 8%, up to 3 stacks. Spring Breeze stacks are consumed when using her Ultimate.",tg:"Eidolon 1",energyBreak:null},{type:"E2",isEidolon:!0,name:"Solar Flare Resonance",description:`Guiying's Ultimate now deals 200% increased DMG to Burned enemies and extends the duration of all Burn effects on the field by 1 turn. Additionally, after her Enhanced Basic ATK's "Solar Flare" hits a Burning enemy target, the Burn status will immediately deal DMG for 1 time equal to 125% of the original DMG to the target. If the target has Sunburn, this effect is doubled.`,tg:"Eidolon 2",energyBreak:null},{type:"E3",isEidolon:!0,name:"Solar Flare Mastery",description:"Skill Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.",tg:"Eidolon 3",energyBreak:null},{type:"E4",isEidolon:!0,name:"Dawn Blossom Awakening",description:"When Guiying's HP drops below 50%, she immediately gains 5 stacks of Petal Dance and her next enhanced attack will consume all stacks of Petal Dance to deal an additional 200% of Guiying's ATK per stack consumed. This effect can only trigger once per battle.",tg:"Eidolon 4",energyBreak:null},{type:"E5",isEidolon:!0,name:"Phoenix Rebirth Dance",description:"Ultimate Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.",tg:"Eidolon 5",energyBreak:null},{type:"E6",isEidolon:!0,name:"Eternal Spring Mastery",description:`When Guiying reaches 5 stacks of Petal Dance, her "Sakura Wind Dance" state is enhanced to "Eternal Sakura Dance" state. During "Eternal Sakura Dance", Guiying's and allies' attacks have a 100% base chance to inflict Burn on enemies, and any existing Burn effects on enemies will also have a 100% base chance to inflict Sunburn. Additionally, when Guiying or allies deal Fire DMG to enemies with Sunburn, there is a 75% base chance to spread the Sunburn effect to adjacent enemies for 1 turn. Petal Dance stacks now don't have a limit.`,tg:"Eidolon 6",energyBreak:null}]},y=()=>{let e=document.getElementById("charName");e&&(e.textContent=i.name);let n=document.getElementById("year");n&&(n.textContent=new Date().getFullYear().toString());let t={description:document.getElementById("description"),skills:document.getElementById("skills"),traces:document.getElementById("traces"),minorTraces:document.getElementById("minortraces"),eidolons:document.getElementById("eidolons"),stats:document.getElementById("stats"),lightCones:document.getElementById("lcs")};t.description&&(t.description.innerHTML=i.description),t.skills&&(t.skills.innerHTML=i.skills.map(o).join("")),t.minorTraces&&(t.minorTraces.innerHTML=i.minorTraces.map(h).join("")),t.traces&&(t.traces.innerHTML=i.traces.map(o).join("")),t.eidolons&&(t.eidolons.innerHTML=i.eidolons.map(o).join("")),t.stats&&(t.stats.innerHTML+=d(i.stats)),t.lightCones&&(t.lightCones.innerHTML=i.lightCones.map(g).join(""))},b=()=>{let e=document.getElementById("navigation"),n=document.getElementById("banner");if(!e||!n)return;let t=()=>{let s=n.offsetTop+n.offsetHeight;(window.pageYOffset||document.documentElement.scrollTop)>=s?(e.classList.add("fixed","top-0","left-0","right-0","z-50","shadow-lg"),e.classList.remove("relative")):(e.classList.remove("fixed","top-0","left-0","right-0","z-50","shadow-lg"),e.classList.add("relative"))},a={mobile:[180,320],desktop:[130,208]};document.querySelectorAll(".nav-link").forEach(s=>{s.addEventListener("click",l=>{l.preventDefault();let m=s.getAttribute("href"),c=document.querySelector(m||"");if(c){let p=window.pageYOffset||document.documentElement.scrollTop,f=n.offsetTop+n.offsetHeight,u=p>=f?c.offsetTop-a[window.innerWidth>768?"desktop":"mobile"][0]:c.offsetTop-a[window.innerWidth>768?"desktop":"mobile"][1];window.scrollTo({top:u,behavior:"smooth"})}})}),window.addEventListener("scroll",t)},w=()=>{document.querySelectorAll("[data-eidolon]").forEach(e=>{let n=e.getAttribute("data-eidolon"),t=`images/${n}.png`,a=document.createElement("div");a.className="overflow-hidden transition-all duration-300 ease-in-out",a.style.maxHeight="0px";let s=document.createElement("img");s.src=t,s.alt=`${n} image`,s.className="w-full h-auto object-cover",a.appendChild(s),e.appendChild(a),e.addEventListener("click",()=>{a.style.maxHeight!=="0px"?a.style.maxHeight="0px":a.style.maxHeight=a.scrollHeight+"px"}),e.style.cursor="pointer"})};document.addEventListener("DOMContentLoaded",()=>{y(),b(),w()});})();
