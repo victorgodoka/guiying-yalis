@@ -1,620 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Guiying Yalis - Character Viewer with detailed stats, skills and lore. Designed for Honkai Star Rail fans."
+    />
+    <meta
+      name="keywords"
+      content="Guiying Yalis, Honkai Star Rail, character viewer, fire element, nihility path, gaming"
+    />
+    <meta name="author" content="Victor Godoka" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Guiying Yalis - Character Viewer" />
+    <meta
+      property="og:description"
+      content="Detailed character viewer for Guiying Yalis from Honkai Star Rail with stats, skills, and lore."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="alice.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Guiying Yalis - Character Viewer" />
+    <meta
+      name="twitter:description"
+      content="Detailed character viewer for Guiying Yalis from Honkai Star Rail"
+    />
+    <title>Guiying Yalis - Character Viewer | Honkai Star Rail</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Character Viewer</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
-    rel="stylesheet" />
-    <meta name="description" content="Guiying Yalis - Character Viewer with detailed stats, skills and lore. Designed for Honkai Star Rail fans.">
+    <!-- Preload critical resources -->
+    <link rel="preload" href="alice.png" as="image" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
+      as="style"
+    />
 
-</head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body class="bg-zinc-900 text-white font-['Anuphan'] antialiased" style="font-weight: 500">
-  <div id="banner" class="relative h-[550px] flex items-end justify-center"
-    style="background-image: url('alice.png'); background-size: cover; background-position: top;">
-    <p id="charName" class="text-red-400 font-bold text-6xl mb-8 z-10 md:mb-0"
-      style="text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);"></p>
-    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
-  </div>
-  <div id="home"></div>
-  <div id="header" class="max-w-7xl mx-auto flex flex-col gap-y-4 p-6">
-    <!-- Navigation -->
-    <nav id="navigation" class="bg-zinc-900 border-b-2 border-red-400 transition-all duration-300 ease-in-out">
-      <div class="max-w-7xl mx-auto px-2 md:px-6 text-xl font-['Bebas_Neue']">
-        <div class="grid grid-cols-2 md:flex items-center justify-center md:space-x-8 py-4">
-          <a href="#home"
-            class="nav-link text-red-400 hover:text-white hover:bg-red-400 md:px-3 rounded transition-colors duration-200 font-medium">Home</a>
-          <a href="#introduction"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Introduction</a>
-          <a href="#stats"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Stats</a>
-          <a href="#skills"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Skills</a>
-          <a href="#traces"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Major Traces</a>
-          <a href="#minortraces"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Minor Traces</a>
-          <a href="#eidolons"
-            class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Eidolons</a>
-          <a href="#lc" class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium">Light
-            Cone</a>
-        </div>
+  <body
+    class="bg-zinc-900 text-white font-['Anuphan'] antialiased"
+    style="font-weight: 500"
+  >
+    <!-- Skip to main content for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-red-400 text-white px-4 py-2 rounded z-50"
+    >
+      Skip to main content
+    </a>
+
+    <header>
+      <div
+        id="banner"
+        class="relative h-[550px] flex items-end justify-center"
+        style="
+          background-image: url('alice.png');
+          background-size: cover;
+          background-position: top;
+        "
+      >
+        <h1
+          id="charName"
+          class="text-red-400 font-bold text-6xl mb-8 z-10 md:mb-0"
+          style="text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)"
+        ></h1>
+        <div
+          class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent"
+        ></div>
       </div>
-    </nav>
+    </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-      <div class="flex flex-col gap-4">
-        <div id="introduction" class="flex items-center gap-2 border-b-2 border-red-400">
-          <div class="w-4 h-4 bg-red-400 rounded"></div>
-          <h2 class="text-3xl font-['Bebas_Neue']">Introduction</h2>
-        </div>
-
-        <div class="p-2" id="description">
-
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-4">
-        <div class="flex items-center gap-2 border-b-2 border-red-400">
-          <div class="w-4 h-4 bg-red-400 rounded"></div>
-          <h2 class="text-3xl font-['Bebas_Neue']">Stats</h2>
-        </div>
-
-        <div class="bg-[#2c2d33] border-2 border-[#33343a] p-4" id="stats">
-          <p class="text-lg font-bold my-2">Level 80 stats</p>
-
-        </div>
-      </div>
-    </div>
-
-
-    <div class="flex items-center gap-2 border-b-2 border-red-400">
-      <div class="w-4 h-4 bg-red-400 rounded"></div>
-      <h2 class="text-3xl font-['Bebas_Neue']">Skills</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4" id="skills"></div>
-
-    <div class="flex items-center gap-2 border-b-2 border-red-400">
-      <div class="w-4 h-4 bg-red-400 rounded"></div>
-      <h2 class="text-3xl font-['Bebas_Neue']">Major Traces</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" id="traces"></div>
-
-    <div class="flex items-center gap-2 border-b-2 border-red-400">
-      <div class="w-4 h-4 bg-red-400 rounded"></div>
-      <h2 class="text-3xl font-['Bebas_Neue']">Minor Traces (Total)</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" id="minortraces"></div>
-
-    <div class="flex items-center gap-2 border-b-2 border-red-400">
-      <div class="w-4 h-4 bg-red-400 rounded"></div>
-      <h2 class="text-3xl font-['Bebas_Neue']">Eidolons</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4" id="eidolons"></div>
-
-    <div id="lc" class="flex items-center gap-2 border-b-2 border-red-400">
-      <div class="w-4 h-4 bg-red-400 rounded"></div>
-      <h2 class="text-3xl font-['Bebas_Neue']">Light Cones</h2>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4" id="lcs">
-    </div>
-  </div>
-
-  <footer class="bg-[#1a1b1f] border-t-2 border-[#33343a] mt-16">
-    <div class="max-w-7xl mx-auto px-4 py-8">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="flex items-center space-x-6 mb-4 md:mb-0">
-          <a href="https://github.com/victorgodoka" target="_blank" rel="noopener noreferrer" 
-             class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2">
-            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-            <span>GitHub</span>
-          </a>
-          <a href="https://ko-fi.com/godokadev" target="_blank" rel="noopener noreferrer" 
-             class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2">
-            <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt="ko-fi" class="w-6 h-6">
-            <span>Ko-fi</span>
-          </a>
-        </div>
-        <div class="text-zinc-400 text-sm">
-          <p>&copy; <span id="year"></span> Victor Godoka. All rights reserved. Made with ❤️</p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const characterData = {
-      name: 'Guiying Yalis',
-      stats: {
-        HP: 1023,
-        ATK: 617,
-        DEF: 396,
-        SPD: 102
-      },
-      description: `
-      <span class="font-bold text-red-400">Guiying Yalis</span> is a 5★ character from the <span
-            class="font-bold text-red-400">Fire</span> element who follows the <span
-            class="font-bold text-[#7e74eb]">Path
-            of Nihility</span>. Bearing the name of a forgotten dynasty, <span class="font-bold text-red-400">Guiying</span> dances through battlefields like a flame-kissed petal caught in the wind. Her elegance hides a dangerous mastery over Burn and Sunburn — curses that blossom into agony. To fight her is to be trapped in a season of fire and fleeting beauty, where spring never truly ends.
-      `,
-      lightCones: [
-        {
-          name: 'Dance Beneath Crimson Blossoms',
-          image: 'lc.png',
-          tier: '⭐⭐⭐⭐⭐',
-          lore: [
-            'In the floating gardens of Xianzhou, where sakura trees bloom not once a year, but with every breath of wind, there lived a girl whose fan bore both fire and fragrance.',
-            'They called her Guiying Yalis, the Crimson Petal. Her steps were too soft for war, her gaze too serene for vengeance — and yet, the world would soon know her fury.',
-            'Long ago, she danced beneath the tutelage of the Arbiter-General himself, Jing Yuan, who taught her not the weight of swords, but the art of timing.',
-            'A blade is swift, he once told her,',
-            'But a flame is patient — and far more enduring.',
-            'She listened. She learned.',
-            'And now, she fought.',
-            'On a night where no stars shone above Xianzhou, shadows fell upon a distant border village. Mara-stricken beasts crawled from fractured dreams, gnawing at the roots of ancient plum trees. Screams rose like incense.',
-            'Then — silence.',
-            'A single gust stirred the sakura trees. A fan unfolded.',
-            'From the darkness, she stepped. Her crimson ribbons flowed like brushstrokes in the air, her platinum hair catching the moonlight. The moment her feet touched the earth, flames followed like obedient disciples.',
-            'She spun.',
-            'And the petals obeyed.',
-            'Fire licked at the enemies\' limbs — not with rage, but with ritual. Each Burn a calligraphy mark, each Sunburn a final signature.',
-            'They writhed. She danced.',
-            'Let spring bloom in ash, she whispered,',
-            'And may all things cruel learn to fear beauty.',
-            'When the final ember died, and the sakura once again kissed the soil in silence, she sheathed her fan with the grace of an empress.',
-            'She did not stay for praise. She never did.',
-            'For Guiying Yalis was no hero.',
-            'She was a season — brief, radiant, and unforgettable.',
-            'And like spring in Xianzhou…',
-            'She always returned when the world grew cold.'
-          ],
-          effect: `Increases the wearer's Effect Hit Rate by 36/48/60/72/84%. When the wearer inflicts DoT, gain 1 stack of Solar Bloom (max 3 stacks). Each stack increases DoT dealt by 10/15/20/25/25%. At 3 stacks, the wearer's SPD increases by 10/12.5/15/17.5/20%. Additionally, when the wearer deals Fire DMG to enemies, there is a 75% base chance to extend all DoT and debuffs effects currently on the field by 1 turn.`,
-          stats: {
-            HP: 1058,
-            ATK: 635,
-            DEF: 396,
-          }
-        },
-        {
-          name: 'Embers of Spring, Cradled in Song',
-          image: 'lc2.png',
-          tier: '⭐⭐⭐⭐',
-          lore: [
-            'In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor — shadows of sakura that bloomed only in the spring of memory.',
-            'There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.',
-            'Nestled in her arms was a girl no older than four, fast asleep — her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.',
-            'She was no child of hers by blood.',
-            'But war had a way of making orphans.',
-            'And Guiying, the Crimson Petal, had a heart that burned not only with flame… but with compassion.',
-            '“You are the first light,” she whispered, stroking the child’s hair,',
-            '“A bud before the bloom. Rest now. The world can wait.”',
-            'As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum — soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees… before fate set her on the path of fire.',
-            'Her voice, low and warm, danced like incense through the air:',
-            '“Close your eyes, my springtime star,',
-            'The moon will guard you from afar.',
-            'Drift like petals, float like flame,',
-            'Tomorrow’s wind will know your name…”',
-            'The child stirred, pressing closer.',
-            'Guiying smiled.',
-            'In that moment, she was not the feared flame that scorched the battlefield.',
-            'Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.',
-            'She was simply Guiying —',
-            'A woman who bore the weight of countless battles…',
-            'And still found time to sing to a sleeping soul.',
-            'Because even in Xianzhou, where stars drift and wars rage…',
-            'The truest strength is found not in fire or fury —',
-            'But in the quiet rhythm of a lullaby.',
-          ],
-          effect: `Increases the wearer's Break Effect by 16/20/24/28/32% and DoT dealt by 24/30/36/42/48%. After inflicting damage with the wearer's Ultimate or Follow-Up ATK, restores 4/8/12/16/20 Energy and increases ATK by 12/18/24/30/36% for 2 turns.`,
-          stats: {
-            HP: 948,
-            ATK: 579,
-            DEF: 348,
-          }
-        }
-      ],
-      skills: [
-        {
-          type: 'Basic ATK',
-          name: 'Solar Bloom',
-          description:
-            "Deals Fire DMG equal to 100% of Guiying's ATK to a single enemy.",
-          tg: 'Single Target',
-          energyBreak: [20, 10],
-          enhanced: {
-            type: "<p style='line-height: 1'>Basic ATK<br /><span class='text-xs'>Enhanced</span></p>",
-            name: 'Solar Flare',
-            description:
-              "Deals Fire DMG equal to 150% of Guiying's ATK to one designated enemy. Deals Fire DMG equal to 75% of Guiying's ATK to adjacent enemies. Any Burned enemies will take 100% more DMG during their next turn.",
-            tg: 'Blast',
-            energyBreak: [30, '10 + 5 adjacent']
-          }
-        },
-        {
-          type: 'Skill',
-          name: 'Cherry Blossom Burst',
-          description:
-            "Deals Fire DMG equal to 210% of Guiying's ATK to a single enemy and deals Fire DMG equal to 85% of Guiying's ATK to any adjacent enemies with a 100% base chance to Burn the target and adjacent targets. When Burned, enemies will take a Fire DoT equal to 325% of Guiying's ATK at the beginning of each turn, lasting for 2 turn(s).",
-          tg: 'Blast',
-          energyBreak: [30, '20 + 10 adjacent']
-        },
-        {
-          type: 'Ultimate',
-          name: 'Spring Sun Radiance',
-          description:
-            "Deals Fire DMG equal to 180% of Guiying's ATK to all enemies. Deals 50% increased Fire DMG to any enemies that are currently Burned. Has a 90% base chance to inflict Burned enemies with Sunburn for 2 turn(s). Enemies inflicted with Sunburn will take 33% more DMG in their turn.",
-          tg: "AoE | <span class='text-[#eec554]'>120 energy cost</span>",
-          energyBreak: [5, 20]
-        },
-        {
-          type: 'Talent',
-          name: 'Sakura Wind Dance',
-          description:
-            'After Guiying uses her Ultimate, her Basic ATK "Solar Bloom" is enhanced to "Solar Flare". After her Enhanced Basic ATK\'s "Solar Flare" hits a Burning enemy target, the Burn status will immediately deal DMG for 1 time equal to 125% of the original DMG to the target. If the target has Sunburn, this effect is doubled.',
-          tg: 'Enchance',
-          energyBreak: [0, '-']
-        },
-        {
-          type: 'Technique',
-          name: 'Spring Awakening',
-          description:
-            "Immediately attacks all enemies within a set range. After entering battle, deals Fire DMG equal to 60% of Guiying's ATK to all enemies, with a 100% base chance to inflict Burn on every enemy target for 2 turn(s). Enemies with Fire weakness also are inflicted with Sunburn for 1 turn.",
-          tg: '',
-          energyBreak: [0, '-']
-        }
-      ],
-      traces: [
-        {
-          type: "<p style='line-height: 1'>A2<br /><span class='text-xs'>Major Trace</span></p>",
-          name: 'Spring Dawn Rush',
-          description:
-            "When the battle begins, Guiying's action is advanced forward by 40% of her Effect Hit Rate.",
-          tg: '',
-          energyBreak: null
-        },
-        {
-          type: "<p style='line-height: 1'>A4<br /><span class='text-xs'>Major Trace</span></p>",
-          name: 'Cherry Blossom Bloom',
-          description:
-            "Increases this unit's DMG by an amount equal to 30% of Effect Hit Rate, up to a maximum DMG increase of 40%. At 5 stacks of Petal Dance, this effect is doubled, and Burn damage is increased by 100%.",
-          tg: '',
-          energyBreak: null
-        },
-        {
-          type: "<p style='line-height: 1'>A6<br /><span class='text-xs'>Major Trace</span></p>",
-          name: 'Sakura Wind Dance',
-          description:
-            'Whenever Guiying deals damage to an enemy, she gains 1 stack of Petal Dance up to 5 stacks. For each stack, she gains 12% SPD. At 5 stacks, she enters the "Sakura Wind Dance" state until she loses 1 or more stacks. While in the "Sakura Wind Dance" state, she gains an additional 40% SPD, then for every 1 SPD above 125, increases Guiying\'s DoT DMG by 8%.',
-          tg: '',
-          energyBreak: null
-        }
-      ],
-      minorTraces: [
-        {
-          type: 'ATK',
-          icon: 'atk.webp',
-          value: '+28%'
-        },
-        {
-          type: 'Effect Hit Rate',
-          isEidolon: true,
-          icon: 'ehr.webp',
-          value: '+16.4%'
-        },
-        {
-          type: 'Fire DMG',
-          icon: 'fire.webp',
-          value: '+14.4%'
-        }
-      ],
-      eidolons: [
-        {
-          type: 'E1',
-          isEidolon: true,
-          name: 'Spring Breeze Enhancement',
-          description: 'When Guiying gains Petal Dance stacks, she also gains 1 stack of Spring Breeze. Each stack of Spring Breeze increases her Effect Hit Rate by 8%, up to 3 stacks. Spring Breeze stacks are consumed when using her Ultimate.',
-          tg: 'Eidolon 1',
-          energyBreak: null
-        },
-        {
-          type: 'E2',
-          isEidolon: true,
-          name: 'Solar Flare Resonance',
-          description:
-            'Guiying\'s Ultimate now deals 200% increased DMG to Burned enemies and extends the duration of all Burn effects on the field by 1 turn. Additionally, after her Enhanced Basic ATK\'s "Solar Flare" hits a Burning enemy target, the Burn status will immediately deal DMG for 1 time equal to 125% of the original DMG to the target. If the target has Sunburn, this effect is doubled.',
-          tg: 'Eidolon 2',
-          energyBreak: null
-        },
-        {
-          type: 'E3',
-          isEidolon: true,
-          name: 'Solar Flare Mastery',
-          description:
-            'Skill Lv. +2, up to a maximum of Lv. 15. Basic ATK Lv. +1, up to a maximum of Lv. 10.',
-          tg: 'Eidolon 3',
-          energyBreak: null
-        },
-        {
-          type: 'E4',
-          isEidolon: true,
-          name: 'Dawn Blossom Awakening',
-          description:
-            "When Guiying's HP drops below 50%, she immediately gains 5 stacks of Petal Dance and her next enhanced attack will consume all stacks of Petal Dance to deal an additional 200% of Guiying's ATK per stack consumed. This effect can only trigger once per battle.",
-          tg: 'Eidolon 4',
-          energyBreak: null
-        },
-        {
-          type: 'E5',
-          isEidolon: true,
-          name: 'Phoenix Rebirth Dance',
-          description:
-            'Ultimate Lv. +2, up to a maximum of Lv. 15. Talent Lv. +2, up to a maximum of Lv. 15.',
-          tg: 'Eidolon 5',
-          energyBreak: null
-        },
-        {
-          type: 'E6',
-          isEidolon: true,
-          name: 'Eternal Spring Mastery',
-          description:
-            'When Guiying reaches 5 stacks of Petal Dance, her "Sakura Wind Dance" state is enhanced to "Eternal Sakura Dance" state. During "Eternal Sakura Dance", Guiying\'s and allies\' attacks have a 100% base chance to inflict Burn on enemies, and any existing Burn effects on enemies will also have a 100% base chance to inflict Sunburn. Additionally, when Guiying or allies deal Fire DMG to enemies with Sunburn, there is a 75% base chance to spread the Sunburn effect to adjacent enemies for 1 turn. Petal Dance stacks now don\'t have a limit.',
-          tg: 'Eidolon 6',
-          energyBreak: null
-        }
-      ]
-    }
-
-    const formatDescription = text =>
-      text
-        .replace(/\+?\d+(\.\d+)?%?/g, match => {
-          return `<span class='text-[#eec554]' style='font-weight: 800;'>${match}</span>`
-        })
-        .replace(/Fire DMG/g, `<span class='text-red-400'>Fire DMG</span>`)
-
-    const cardTemplate = skill => `
-      <div class="bg-[#2c2d33] border-[#33343a] border-2" ${skill.isEidolon ? `data-eidolon="${skill.type.toLowerCase()}"` : ''}>
-        <div class="border-[#33343a] border-b flex items-center">
-          <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${skill.type
-      }</div>
-          <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
-            <p class="text-xl opacity-90" style="font-weight: 800;">${skill.name
-      }</p>
-            ${skill.tg &&
-      `<p class="text-sm opacity-75" style="font-weight: 400;">${skill.tg}</p>`
-      }
-          </div>
-        </div>
-        ${skill.energyBreak
-        ? `<div class="grid grid-cols-2 py-2 px-2 bg-[#33343a]">
-          <p class="text-sm text-zinc-300">Energy Gain: <span style="font-weight: 800;">${skill.energyBreak[0]}</span></p>
-          <p class="text-sm text-zinc-300">Break: <span style="font-weight: 800;">${skill.energyBreak[1]}</span></p>
-        </div>`
-        : ''
-      }
-        <div class="p-4">
-          ${formatDescription(skill.description)}
-        </div>
-        ${skill.enhanced
-        ? `
-          <div class="border-[#33343a] border-t-2 flex items-center">
-          <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${skill.enhanced.type
-        }</div>
-          <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
-            <p class="text-xl opacity-90" style="font-weight: 800;">${skill.enhanced.name
-        }</p>
-            ${skill.enhanced.tg &&
-        `<p class="text-sm opacity-75" style="font-weight: 400;">${skill.enhanced.tg}</p>`
-        }
-          </div>
-        </div>
-        ${skill.enhanced.energyBreak
-          ? `<div class="grid grid-cols-2 py-2 px-2 bg-[#33343a]">
-          <p class="text-sm text-zinc-300">Energy Gain: <span style="font-weight: 800;">${skill.enhanced.energyBreak[0]}</span></p>
-          <p class="text-sm text-zinc-300">Break: <span style="font-weight: 800;">${skill.enhanced.energyBreak[1]}</span></p>
-        </div>`
-          : ''
-        }
-        <div class="p-4">
-          ${formatDescription(skill.enhanced.description)}
-        </div>
-        `
-        : ''
-      }
-      </div>
-    `
-
-    const minorTraceTemplate = trace => `
-      <div class="flex items-center justify-center gap-2 border-[#33343a] border bg-[#2c2d33] w-full p-2 text-lg">
-        <img src="${trace.icon}" alt="${trace.type}" class="w-8 h-8">
-        <p>${formatDescription(`${trace.type} ${trace.value}`)}</p>
-      </div>
-    `
-
-    const statsTemplate = (stats, isLightCone = false) => `
-      <ul class="${isLightCone ? 'grid grid-cols-3' : ''}">
-        <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
-          <div class="flex items-center p-1">
-            <img src="hp.webp" alt="hp" class="w-8 h-8" />
-            <span>HP</span>
-          </div>
-          <p>${stats.HP}</p>
-        </li>
-        <li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
-          <div class="flex items-center p-1">
-            <img src="atk.webp" alt="hp" class="w-8 h-8" />
-            <span>ATK</span>
-          </div>
-          <p>${stats.ATK}</p>
-        </li>
-        <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
-          <div class="flex items-center p-1">
-            <img src="def.webp" alt="hp" class="w-8 h-8" />
-            <span>DEF</span>
-          </div>
-          <p>${stats.DEF}</p>
-        </li>
-        ${stats.SPD ? `<li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
-          <div class="flex items-center p-1">
-            <img src="spd.webp" alt="hp" class="w-8 h-8" />
-            <span>Speed</span>
-          </div>
-          <p>${stats.SPD}</p>
-        </li>` : ''}
-      </ul>
-    `
-
-    const lightConeTemplate = lightCone => `
-    <div class="bg-[#2c2d33] border-[#33343a] border-2 relative">
-      <img src="nihility.webp" alt="light cone" class="w-8 absolute z-50 right-8 top-2 opacity-40">
-        <div class="border-[#33343a] border-b flex items-center">
-          <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
-          <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
-            <p class="text-xl opacity-90" style="font-weight: 800;">${lightCone.name}</p>
-            <p class="text-sm" style="font-weight: 400;">${lightCone.tier}</p>
-            </div>
-        </div>
-        <div class="p-4">
-          <div class="mb-4">
-            ${formatDescription(lightCone.effect)}
-          </div>
-          <div class="mb-4">
-            ${statsTemplate(lightCone.stats, true)}
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <img src="${lightCone.image}" alt="${lightCone.name}" class="w-full h-auto object-cover">
-            <div class="text-sm space-y-2">
-              ${lightCone.lore.map(paragraph => `<p>${paragraph}</p>`).join('')}
+    <main id="main-content">
+      <div id="home"></div>
+      <div id="header" class="max-w-7xl mx-auto flex flex-col gap-y-4 p-6">
+        <!-- Navigation -->
+        <nav
+          id="navigation"
+          class="bg-zinc-900 border-b-2 border-red-400 transition-all duration-300 ease-in-out"
+          role="navigation"
+          aria-label="Main navigation"
+        >
+          <div
+            class="max-w-7xl mx-auto px-2 md:px-6 text-xl font-['Bebas_Neue']"
+          >
+            <div
+              class="grid grid-cols-2 md:flex items-center justify-center md:space-x-8 py-4"
+            >
+              <a
+                href="#home"
+                class="nav-link text-red-400 hover:text-white hover:bg-red-400 md:px-3 rounded transition-colors duration-200 font-medium"
+                aria-current="page"
+                >Home</a
+              >
+              <a
+                href="#introduction"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Introduction</a
+              >
+              <a
+                href="#stats"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Stats</a
+              >
+              <a
+                href="#skills"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Skills</a
+              >
+              <a
+                href="#traces"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Major Traces</a
+              >
+              <a
+                href="#minortraces"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Minor Traces</a
+              >
+              <a
+                href="#eidolons"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Eidolons</a
+              >
+              <a
+                href="#lc"
+                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
+                >Light Cone</a
+              >
             </div>
           </div>
+        </nav>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <article class="flex flex-col gap-4">
+            <header
+              id="introduction"
+              class="flex items-center gap-2 border-b-2 border-red-400"
+            >
+              <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+              <h2 class="text-3xl font-['Bebas_Neue']">Introduction</h2>
+            </header>
+
+            <div
+              class="p-2"
+              id="description"
+              aria-label="Character description"
+            ></div>
+          </article>
+
+          <article class="flex flex-col gap-4">
+            <header
+              class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+            >
+              <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+              <h2 class="text-3xl font-['Bebas_Neue']">Stats</h2>
+            </header>
+
+            <div
+              class="bg-[#2c2d33] border-2 border-[#33343a] p-4"
+              id="stats"
+              role="region"
+              aria-label="Character statistics"
+            >
+              <p class="text-lg font-bold my-2">Level 80 stats</p>
+            </div>
+          </article>
+        </section>
+
+        <section>
+          <header
+            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+          >
+            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Skills</h2>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4"
+            id="skills"
+            role="region"
+            aria-label="Character skills"
+          ></div>
+        </section>
+
+        <section>
+          <header
+            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+          >
+            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Major Traces</h2>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
+            id="traces"
+            role="region"
+            aria-label="Major traces"
+          ></div>
+        </section>
+
+        <section>
+          <header
+            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+          >
+            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Minor Traces (Total)</h2>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
+            id="minortraces"
+            role="region"
+            aria-label="Minor traces"
+          ></div>
+        </section>
+
+        <section>
+          <header
+            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+          >
+            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Eidolons</h2>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
+            id="eidolons"
+            role="region"
+            aria-label="Eidolons"
+          ></div>
+        </section>
+
+        <section>
+          <header
+            id="lc"
+            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
+          >
+            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Light Cones</h2>
+          </header>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4"
+            id="lcs"
+            role="region"
+            aria-label="Light cones"
+          ></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="bg-[#1a1b1f] border-t-2 border-[#33343a] mt-16">
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center space-x-6 mb-4 md:mb-0">
+            <a
+              href="https://github.com/victorgodoka"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2"
+              aria-label="Visit GitHub profile"
+            >
+              <svg
+                class="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+              <span>GitHub</span>
+            </a>
+            <a
+              href="https://ko-fi.com/godokadev"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2"
+              aria-label="Support on Ko-fi"
+            >
+              <img
+                src="https://storage.ko-fi.com/cdn/logomarkLogo.png"
+                alt="ko-fi"
+                class="w-6 h-6"
+              />
+              <span>Ko-fi</span>
+            </a>
+          </div>
+          <div class="text-zinc-400 text-sm">
+            <p>
+              &copy; <span id="year"></span> Victor Godoka. All rights reserved.
+              Made with ❤️
+            </p>
+          </div>
         </div>
       </div>
-    `
+    </footer>
 
-    // Preencher HTML com os dados
-    document.getElementById('charName').textContent = characterData.name
-
-    const year = document.getElementById('year')
-    const skillsContainer = document.getElementById('skills')
-    const descriptionContainer = document.getElementById('description')
-    const tracesContainer = document.getElementById('traces')
-    const minorTracesContainer = document.getElementById('minortraces')
-    const eidolonsContainer = document.getElementById('eidolons')
-    const statsContainer = document.getElementById('stats')
-    const lightConesContainer = document.getElementById('lcs')
-    year.textContent = new Date().getFullYear()
-    descriptionContainer.innerHTML = characterData.description
-    skillsContainer.innerHTML = characterData.skills
-      .map(cardTemplate)
-      .join('')
-    minorTracesContainer.innerHTML = characterData.minorTraces
-      .map(minorTraceTemplate)
-      .join('')
-    tracesContainer.innerHTML = characterData.traces
-      .map(cardTemplate)
-      .join('')
-    eidolonsContainer.innerHTML = characterData.eidolons
-      .map(cardTemplate)
-      .join('')
-    statsContainer.innerHTML += statsTemplate(characterData.stats)
-    lightConesContainer.innerHTML = characterData.lightCones
-      .map(lightConeTemplate)
-      .join('')
-
-    // Navigation scroll behavior
-    const navigation = document.getElementById('navigation')
-    const banner = document.getElementById('banner')
-
-    function handleScroll() {
-      const bannerBottom = banner.offsetTop + banner.offsetHeight
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      if (scrollTop >= bannerBottom) {
-        navigation.classList.add('fixed', 'top-0', 'left-0', 'right-0', 'z-50', 'shadow-lg')
-        navigation.classList.remove('relative')
-      } else {
-        navigation.classList.remove('fixed', 'top-0', 'left-0', 'right-0', 'z-50', 'shadow-lg')
-        navigation.classList.add('relative')
-      }
-    }
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('.nav-link').forEach(link => {
-      const scrollValues = {
-        mobile: [180, 320],
-        desktop: [130, 208]
-      }
-      link.addEventListener('click', (e) => {
-        e.preventDefault()
-        const targetId = link.getAttribute('href')
-        const targetElement = document.querySelector(targetId)
-        const bannerBottom = banner.offsetTop + banner.offsetHeight
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-
-        if (targetElement) {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-          const offsetTop = scrollTop >= bannerBottom
-            ? targetElement.offsetTop - scrollValues[window.innerWidth > 768 ? 'desktop' : 'mobile'][0]
-            : targetElement.offsetTop - scrollValues[window.innerWidth > 768 ? 'desktop' : 'mobile'][1]
-
-          window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-          })
-        }
-      })
-    })
-
-    // Eidolon accordion functionality
-    document.querySelectorAll('[data-eidolon]').forEach(eidolonCard => {
-      const eidolonType = eidolonCard.getAttribute('data-eidolon')
-      const imagePath = `${eidolonType}.png`
-
-      // Create accordion container
-      const accordionContainer = document.createElement('div')
-      accordionContainer.className = 'overflow-hidden transition-all duration-300 ease-in-out'
-      accordionContainer.style.maxHeight = '0px'
-
-      // Create image element
-      const image = document.createElement('img')
-      image.src = imagePath
-      image.alt = `${eidolonType} image`
-      image.className = 'w-full h-auto object-cover'
-
-      // Append image to accordion container
-      accordionContainer.appendChild(image)
-
-      // Insert accordion after the card content
-      eidolonCard.appendChild(accordionContainer)
-
-      // Add click event listener
-      eidolonCard.addEventListener('click', () => {
-        const isExpanded = accordionContainer.style.maxHeight !== '0px'
-
-        if (isExpanded) {
-          accordionContainer.style.maxHeight = '0px'
-        } else {
-          accordionContainer.style.maxHeight = accordionContainer.scrollHeight + 'px'
-        }
-      })
-
-      // Add cursor pointer to indicate clickable
-      eidolonCard.style.cursor = 'pointer'
-    })
-
-    // Add scroll event listener
-    window.addEventListener('scroll', handleScroll)
-  </script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
