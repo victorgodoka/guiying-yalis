@@ -57,6 +57,7 @@ export interface LightCone {
 
 export interface CharacterData {
   name: string;
+  lore: Lore;
   stats: CharacterStats;
   description: string;
   lightCones: LightCone[];
@@ -64,6 +65,15 @@ export interface CharacterData {
   traces: Trace[];
   minorTraces: MinorTrace[];
   eidolons: Eidolon[];
+}
+
+export interface Lore {
+  history: string;
+  personality: string;
+  appearance: string;
+  background: string;
+  relationship: string;
+  other: string;
 }
 
 export interface ScrollValues {

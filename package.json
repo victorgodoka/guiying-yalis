@@ -4,8 +4,13 @@
   "description": "A detailed character viewer for Guiying Yalis from Honkai Star Rail",
   "main": "dist/script.js",
   "scripts": {
-    "build": "esbuild src/script.ts --bundle --minify --outfile=js/script.js --target=es2020",
+    "build": "npm run build:ts && npm run build:css",
+    "build:ts": "esbuild src/script.ts --bundle --minify --outfile=js/script.js --target=es2020",
+    "build:css": "tailwindcss -i tailwind.css -o css/styles.css --minify",
     "dev": "esbuild src/script.ts --bundle --watch --outfile=js/script.js --target=es2020",
+    "dev:all": "concurrently \"npm run dev\" \"npm run tailwind:watch\"",
+    "tailwind:watch": "tailwindcss -i tailwind.css -o css/styles.css --watch",
+    "tailwind:build": "tailwindcss -i tailwind.css -o css/styles.css --minify",
     "start": "live-server",
     "type-check": "tsc --noEmit"
   },
@@ -19,6 +24,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^20.10.0",
+    "concurrently": "^9.2.0",
     "esbuild": "^0.25.5",
     "live-server": "^1.2.2",
     "typescript": "^5.3.0"
