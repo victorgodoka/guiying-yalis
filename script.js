@@ -16,7 +16,7 @@ const characterData = {
   lightCones: [
     {
       name: 'Dance Beneath Crimson Blossoms',
-      image: 'lc.png',
+      image: 'images/lc.png',
       tier: '⭐⭐⭐⭐⭐',
       lore: [
         'In the floating gardens of Xianzhou, where sakura trees bloom not once a year, but with every breath of wind, there lived a girl whose fan bore both fire and fragrance.',
@@ -52,7 +52,7 @@ const characterData = {
     },
     {
       name: 'Embers of Spring, Cradled in Song',
-      image: 'lc2.png',
+      image: 'images/lc2.png',
       tier: '⭐⭐⭐⭐',
       lore: [
         'In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor — shadows of sakura that bloomed only in the spring of memory.',
@@ -167,18 +167,18 @@ const characterData = {
   minorTraces: [
     {
       type: 'ATK',
-      icon: 'atk.webp',
+      icon: 'images/atk.webp',
       value: '+28%'
     },
     {
       type: 'Effect Hit Rate',
       isEidolon: true,
-      icon: 'ehr.webp',
+      icon: 'images/ehr.webp',
       value: '+16.4%'
     },
     {
       type: 'Fire DMG',
-      icon: 'fire.webp',
+      icon: 'images/fire.webp',
       value: '+14.4%'
     }
   ],
@@ -186,7 +186,7 @@ const characterData = {
     {
       type: 'E1',
       isEidolon: true,
-      name: 'Spring Breeze Enhancement',
+      name: 'Spring Breeze',
       description:
         'When Guiying gains Petal Dance stacks, she also gains 1 stack of Spring Breeze. Each stack of Spring Breeze increases her Effect Hit Rate by 8%, up to 3 stacks. Spring Breeze stacks are consumed when using her Ultimate.',
       tg: 'Eidolon 1',
@@ -315,21 +315,21 @@ const statsTemplate = (stats, isLightCone = false) => `
       <ul class="${isLightCone ? 'grid grid-cols-3' : ''}">
         <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
           <div class="flex items-center p-1">
-            <img src="hp.webp" alt="HP" class="w-8 h-8" />
+            <img src="images/hp.webp" alt="HP" class="w-8 h-8" />
             <span>HP</span>
           </div>
           <p>${stats.HP}</p>
         </li>
         <li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
           <div class="flex items-center p-1">
-            <img src="atk.webp" alt="ATK" class="w-8 h-8" />
+            <img src="images/atk.webp" alt="ATK" class="w-8 h-8" />
             <span>ATK</span>
           </div>
           <p>${stats.ATK}</p>
         </li>
         <li class="border-[#33343a] border-2 bg-[#36373d] flex items-center justify-between pl-1 pr-4">
           <div class="flex items-center p-1">
-            <img src="def.webp" alt="DEF" class="w-8 h-8" />
+            <img src="images/def.webp" alt="DEF" class="w-8 h-8" />
             <span>DEF</span>
           </div>
           <p>${stats.DEF}</p>
@@ -337,7 +337,7 @@ const statsTemplate = (stats, isLightCone = false) => `
         ${stats.SPD
     ? `<li class="border-[#33343a] border-2 flex items-center justify-between pl-1 pr-4">
           <div class="flex items-center p-1">
-            <img src="spd.webp" alt="Speed" class="w-8 h-8" />
+            <img src="images/spd.webp" alt="Speed" class="w-8 h-8" />
             <span>Speed</span>
           </div>
           <p>${stats.SPD}</p>
@@ -349,7 +349,7 @@ const statsTemplate = (stats, isLightCone = false) => `
 
 const lightConeTemplate = lightCone => `
       <article class="bg-[#2c2d33] border-[#33343a] border-2 relative">
-        <img src="nihility.webp" alt="Light cone path" class="w-8 absolute z-50 right-8 top-2 opacity-40">
+        <img src="images/nihility.webp" alt="Light cone path" class="w-8 absolute z-50 right-8 top-2 opacity-40">
         <div class="border-[#33343a] border-b flex items-center">
           <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
           <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
