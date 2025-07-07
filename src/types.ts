@@ -50,14 +50,19 @@ export interface LightCone {
   name: string;
   image: string;
   tier: string;
-  lore: string[];
+  lore: string[] | string;
   effect: string;
   stats: CharacterStats;
 }
 
+export type Path = 'Nihility' | 'Destruction' | 'Harmony' | 'Abundance' | 'The Hunt' | 'The Rememberance';
+export type Element = 'Fire' | 'Ice' | 'Physical' | 'Quantum' | 'Imaginary' | 'Lightning' | 'Wind';
+
 export interface CharacterData {
   name: string;
-  lore: Lore;
+  path: Path;
+  element: Element;
+  lore: LoreContent;
   stats: CharacterStats;
   description: string;
   lightCones: LightCone[];
@@ -76,9 +81,11 @@ export interface Lore {
   other: string;
 }
 
+export type LoreContent = Lore | string;
+
 export interface ScrollValues {
-  mobile: [number, number];
-  desktop: [number, number];
+  mobile: number;
+  desktop: number;
 }
 
 export interface Containers {

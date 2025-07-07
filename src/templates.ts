@@ -4,7 +4,7 @@ import { formatDescription } from "./utils";
 export const cardTemplate = (data: Skill | Trace | Eidolon): string => `
   <article class="bg-[#2c2d33] border-[#33343a] border-2" ${('isEidolon' in data && data.isEidolon) ? `data-eidolon="${data.type.toLowerCase()}"` : ''}>
     <div class="border-[#33343a] border-b flex items-center">
-      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.type}</div>
+      <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.type}</div>
       <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
         <h3 class="text-xl opacity-90" style="font-weight: 800;">${data.name}</h3>
         ${data.tg ? `<p class="text-sm opacity-75" style="font-weight: 400;">${data.tg}</p>` : ''}
@@ -19,7 +19,7 @@ export const cardTemplate = (data: Skill | Trace | Eidolon): string => `
     </div>
     ${('enhanced' in data && data.enhanced) ? `
       <div class="border-[#33343a] border-t-2 flex items-center">
-        <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.enhanced.type}</div>
+        <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.enhanced.type}</div>
         <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
           <h4 class="text-xl opacity-90" style="font-weight: 800;">${data.enhanced.name}</h4>
           ${data.enhanced.tg ? `<p class="text-sm opacity-75" style="font-weight: 400;">${data.enhanced.tg}</p>` : ''}
@@ -39,7 +39,7 @@ export const cardTemplate = (data: Skill | Trace | Eidolon): string => `
 export const minorTraceTemplate = (trace: MinorTrace): string => `
   <div class="flex items-center justify-center gap-2 border-[#33343a] border bg-[#2c2d33] w-full p-2 text-lg">
     <img src="${trace.icon}" alt="${trace.type}" class="w-8 h-8">
-    <p>${formatDescription(`${trace.type} ${trace.value}`)}</p>
+    <p>${(`${trace.type} ${trace.value}`)}</p>
   </div>
 `;
 
@@ -80,7 +80,7 @@ export const lightConeTemplate = (lightCone: LightCone): string => `
   <article class="bg-[#2c2d33] border-[#33343a] border-2 relative">
     <img src="images/nihility.webp" alt="Light cone path" class="w-8 absolute z-50 right-8 top-2 opacity-40">
     <div class="border-[#33343a] border-b flex items-center">
-      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
+      <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
       <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
         <h3 class="text-xl opacity-90" style="font-weight: 800;">${lightCone.name}</h3>
         <p class="text-sm" style="font-weight: 400;">${lightCone.tier}</p>
@@ -96,7 +96,7 @@ export const lightConeTemplate = (lightCone: LightCone): string => `
       <div class="grid grid-cols-2 gap-2">
         <img src="${lightCone.image}" alt="${lightCone.name}" class="w-full h-auto object-cover">
         <div class="text-sm space-y-2">
-          ${lightCone.lore.map((paragraph: string) => `<p>${paragraph}</p>`).join('')}
+          ${lightCone.lore}
         </div>
       </div>
     </div>

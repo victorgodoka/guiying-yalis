@@ -1,9 +1,11 @@
-import { 
-  CharacterData, 
+import {
+  CharacterData,
 } from './types';
 
 export const characterData: CharacterData = {
   name: 'Guiying Yalis',
+  path: 'Nihility',
+  element: 'Fire',
   stats: {
     HP: 1023,
     ATK: 617,
@@ -11,41 +13,59 @@ export const characterData: CharacterData = {
     SPD: 102
   },
   description: `
-      <span class="font-bold text-red-400">Guiying Yalis</span> is a 5★ character from the <span
-            class="font-bold text-red-400">Fire</span> element who follows the <span
-            class="font-bold text-[#7e74eb]">Path
-            of Nihility</span>. Bearing the name of a forgotten dynasty, <span class="font-bold text-red-400">Guiying</span> dances through battlefields like a flame-kissed petal caught in the wind. Her elegance hides a dangerous mastery over Burn and Sunburn — curses that blossom into agony. To fight her is to be trapped in a season of fire and fleeting beauty, where spring never truly ends.
-      `,
+      <p>Guiying Yalis is a 5★ character from the Fire element who follows the Path of Nihility. Guiying Yalis, heir to a name lost with a dying world, moves through Xianzhou like a memory wrapped in silk and flame. Composed and distant, she speaks little — but her eyes hold centuries of sorrow, and her smile never reaches them. The Cloud Knights say she is serenity incarnate, yet those who have seen her fight know better: in battle, she becomes a storm of grace and ruin, a dancer whose steps leave scorched earth in their wake.</p>
+      <p></p>
+  `,
   lightCones: [
     {
       name: 'Dance Beneath Crimson Blossoms',
       image: 'images/lc.png',
       tier: '⭐⭐⭐⭐⭐',
-      lore: [
-        'In the floating gardens of Xianzhou, where sakura trees bloom not once a year, but with every breath of wind, there lived a girl whose fan bore both fire and fragrance.',
-        'They called her Guiying Yalis, the Crimson Petal. Her steps were too soft for war, her gaze too serene for vengeance — and yet, the world would soon know her fury.',
-        'Long ago, she danced beneath the tutelage of the Arbiter-General himself, Jing Yuan, who taught her not the weight of swords, but the art of timing.',
-        'A blade is swift, he once told her,',
-        'But a flame is patient — and far more enduring.',
-        'She listened. She learned.',
-        'And now, she fought.',
-        'On a night where no stars shone above Xianzhou, shadows fell upon a distant border village. Mara-stricken beasts crawled from fractured dreams, gnawing at the roots of ancient plum trees. Screams rose like incense.',
-        'Then — silence.',
-        'A single gust stirred the sakura trees. A fan unfolded.',
-        'From the darkness, she stepped. Her crimson ribbons flowed like brushstrokes in the air, her platinum hair catching the moonlight. The moment her feet touched the earth, flames followed like obedient disciples.',
-        'She spun.',
-        'And the petals obeyed.',
-        "Fire licked at the enemies' limbs — not with rage, but with ritual. Each Burn a calligraphy mark, each Sunburn a final signature.",
-        'They writhed. She danced.',
-        'Let spring bloom in ash, she whispered,',
-        'And may all things cruel learn to fear beauty.',
-        'When the final ember died, and the sakura once again kissed the soil in silence, she sheathed her fan with the grace of an empress.',
-        'She did not stay for praise. She never did.',
-        'For Guiying Yalis was no hero.',
-        'She was a season — brief, radiant, and unforgettable.',
-        'And like spring in Xianzhou…',
-        'She always returned when the world grew cold.'
-      ],
+      lore: `
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>In the drifting realms of Xianzhou, where cherry blossoms bloom in defiance of time, there danced a woman whose name carried the echoes of a fallen dynasty — Guiying Yalis.</p>
+          
+          <p>She did not march into war like a soldier.</p>
+          
+          <p>She drifted into battle like spring wind through scorched earth —<br>
+          elegant, effortless… inevitable.</p>
+          
+          <p>Burn and Sunburn.</p>
+          
+          <p>Two curses masked in beauty.</p>
+          
+          <p>One seared the flesh. The other scorched the soul.</p>
+          
+          <p>And both answered her call.</p>
+          
+          <p>Her enemies never saw her wrath — only the petals she left behind.</p>
+          
+          <p>Crimson, gold, ash.</p>
+          
+          <p>Once, under a moonless sky, shadows clawed at the gates of a distant Xianzhou village. The stars had turned their gaze. The night braced for ruin.</p>
+          
+          <p>Then came the fan.</p>
+          
+          <p>Unfurled in silence, it shimmered with embers and memory. With a single step, she set the wind ablaze. Flames curled like dancers around her — patient, merciless. The cursed fire she summoned did not roar. It whispered.</p>
+          
+          <p>Those touched by her art did not burn.</p>
+          
+          <p>They withered.</p>
+          
+          <p>One breath at a time.</p>
+          
+          <p>When the ashes settled and the petals floated softly down, she was already gone —<br>
+          like spring, fleeting yet eternal.</p>
+          
+          <p>They called her many things: Flame Dancer. Crimson Petal. Cursebearer.</p>
+          
+          <p>But to those who survived…</p>
+          
+          <p>She was a season.</p>
+          
+          <p>And in her presence, spring never ended.</p>
+        </div>
+      `,
       effect: `Increases the wearer's Effect Hit Rate by 36/48/60/72/84%. When the wearer inflicts DoT, gain 1 stack of Solar Bloom (max 3 stacks). Each stack increases DoT dealt by 10/15/20/25/25%. At 3 stacks, the wearer's SPD increases by 10/12.5/15/17.5/20%. Additionally, when the wearer deals Fire DMG to enemies, there is a 75% base chance to extend all DoT and debuffs effects currently on the field by 1 turn.`,
       stats: {
         HP: 1058,
@@ -57,32 +77,55 @@ export const characterData: CharacterData = {
       name: 'Embers of Spring, Cradled in Song',
       image: 'images/lc2.png',
       tier: '⭐⭐⭐⭐',
-      lore: [
-        'In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor — shadows of sakura that bloomed only in the spring of memory.',
-        'There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.',
-        'Nestled in her arms was a girl no older than four, fast asleep — her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.',
-        'She was no child of hers by blood.',
-        'But war had a way of making orphans.',
-        'And Guiying, the Crimson Petal, had a heart that burned not only with flame… but with compassion.',
-        '"You are the first light," she whispered, stroking the child\'s hair,',
-        '"A bud before the bloom. Rest now. The world can wait."',
-        'As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum — soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees… before fate set her on the path of fire.',
-        'Her voice, low and warm, danced like incense through the air:',
-        '"Close your eyes, my springtime star,',
-        'The moon will guard you from afar.',
-        'Drift like petals, float like flame,',
-        'Tomorrow\'s wind will know your name…"',
-        'The child stirred, pressing closer.',
-        'Guiying smiled.',
-        'In that moment, she was not the feared flame that scorched the battlefield.',
-        'Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.',
-        'She was simply Guiying —',
-        'A woman who bore the weight of countless battles…',
-        'And still found time to sing to a sleeping soul.',
-        'Because even in Xianzhou, where stars drift and wars rage…',
-        'The truest strength is found not in fire or fury —',
-        'But in the quiet rhythm of a lullaby.'
-      ],
+      lore: `
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor — shadows of sakura that bloomed only in the spring of memory.</p>
+          
+          <p>There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.</p>
+          
+          <p>Nestled in her arms was a girl no older than four, fast asleep — her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.</p>
+          
+          <p>She was no child of hers by blood.</p>
+          
+          <p>But war had a way of making orphans.</p>
+          
+          <p>And Guiying, the Crimson Petal, had a heart that burned not only with flame… but with compassion.</p>
+          
+          <p>"You are the first light," she whispered, stroking the child's hair,<br>
+          "A bud before the bloom. Rest now. The world can wait."</p>
+          
+          <p>As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum — soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees… before fate set her on the path of fire.</p>
+          
+          <p>Her voice, low and warm, danced like incense through the air:</p>
+          
+          <div class="pl-4 border-l-2 custom-border-color my-4">
+            <p>"Close your eyes, my springtime star,<br>
+            The moon will guard you from afar.<br>
+            Drift like petals, float like flame,<br>
+            Tomorrow's wind will know your name…"</p>
+          </div>
+          
+          <p>The child stirred, pressing closer.</p>
+          
+          <p>Guiying smiled.</p>
+          
+          <p>In that moment, she was not the feared flame that scorched the battlefield.</p>
+          
+          <p>Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.</p>
+          
+          <p>She was simply Guiying —</p>
+          
+          <p>A woman who bore the weight of countless battles…</p>
+          
+          <p>And still found time to sing to a sleeping soul.</p>
+          
+          <p>Because even in Xianzhou, where stars drift and wars rage…</p>
+          
+          <p>The truest strength is found not in fire or fury —</p>
+          
+          <p>But in the quiet rhythm of a lullaby.</p>
+        </div>
+      `,
       effect: `Increases the wearer's Break Effect by 16/20/24/28/32% and DoT dealt by 24/30/36/42/48%. After inflicting damage with the wearer's Ultimate or Follow-Up ATK, restores 4/8/12/16/20 Energy and increases ATK by 12/18/24/30/36% for 2 turns.`,
       stats: {
         HP: 948,
@@ -226,12 +269,17 @@ export const characterData: CharacterData = {
       energyBreak: null
     }
   ],
-  lore: {
-    history: '',
-    personality: '',
-    appearance: '',
-    background: '',
-    relationship: '',
-    other: ''
-  }
+  lore: `
+    <div class="space-y-4 text-gray-300 leading-relaxed">
+      <p>In the age before ruin, Guiying Yalis lived beneath gardens of endless spring. Her world bloomed in peace — a distant star ruled by a dynasty now lost to time. When the Denizens of Abundance arrived, they promised miracles: illness cured overnight, crops that never withered, and life that endured beyond natural death.</p>
+      <p>But what began as salvation soon revealed itself as rot. Life unending became a curse. Minds twisted. Bodies refused to die. The planet fell, not with flame or war, but with decay, madness, and torment without end.</p>
+      <p>Guiying remembers all of it.</p>
+      <p>She remembers the smiles that became screams. The warmth that turned cold. The moment she ran with her family through streets collapsing under the weight of false immortality. And the moment she lost them — separated by a sudden Mara-born incursion, their fates left unknown.</p>
+      <p>Alone, she drifted through the stars until the Cloud Knights of Xianzhou found her — a lone girl cradling the last fan of her fallen house. They took her to the Xianzhou Luofu, not as a prisoner, but as a refugee of something far worse: a survivor of the Abundance’s unchecked mercy.</p>
+      <p>There, Guiying found a new life among orphans of war and children scarred like her. She saw herself in their silence, their anger, their loneliness. And in that reflection, she found resolve.</p>
+      <p>Under the tutelage of General Jing Yuan, she trained not with brute force, but with grace and control. He taught her that flame, like memory, must be tempered. That fire could destroy — but also protect.</p>
+      <p>Today, Guiying fights for Xianzhou, not as a refugee, but as its guardian—one who remembers the cost of failure far too clearly. Beneath drifting petals, she dances on battlefields, determined to shield her new home from the horrors she knows intimately. And perhaps, one day, among the countless stars, she will find a trace of those she lost.</p>
+      <p>For Guiying Yalis remembers. And she carries that memory as both burden and strength, forever.</p>
+    </div>
+  `
 };

@@ -4,6 +4,7 @@ import {
   ScrollValues, 
   Containers 
 } from './types';
+import { formatDescription } from './utils';
 
 // Type-safe render mapping
 type RenderMap = {
@@ -11,7 +12,7 @@ type RenderMap = {
 };
 
 const createRenderMap = (): RenderMap => ({
-  description: () => characterData.description,
+  description: () => formatDescription(characterData.description) || '',
   skills: () => characterData.skills.map(cardTemplate).join(''),
   traces: () => characterData.traces.map(cardTemplate).join(''),
   minorTraces: () => characterData.minorTraces.map(minorTraceTemplate).join(''),
@@ -54,63 +55,91 @@ const initializePage = (): void => {
 const initializeNavigation = (): void => {
   const navigation = document.getElementById('navigation');
   const banner = document.getElementById('banner');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
 
   if (!navigation || !banner) return;
 
   // Cache scroll values and device type
   const scrollValues: ScrollValues = {
-    mobile: [180, 320],
-    desktop: [130, 208]
+    mobile: 130,
+    desktop: 300,
   };
   
   const isDesktop = window.innerWidth > 768;
-  const [offsetWhenSticky, offsetWhenNotSticky] = scrollValues[isDesktop ? 'desktop' : 'mobile'];
+  const offsetValue = scrollValues[isDesktop ? 'desktop' : 'mobile'];
 
-  let ticking = false;
-  const handleScroll = (): void => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        const bannerBottom = banner.offsetTop + banner.offsetHeight;
-        const scrollTop = window.scrollY;
-        const navigationFixedClasses = ['fixed', 'top-0', 'left-0', 'right-0', 'z-50', 'shadow-lg']
-        
-        if (scrollTop >= bannerBottom) {
-          navigation.classList.add(...navigationFixedClasses);
-          navigation.classList.remove('relative');
-        } else {
-          navigation.classList.remove(...navigationFixedClasses);
-          navigation.classList.add('relative');
-        }
+  // Mobile menu functionality
+  const toggleMobileMenu = (): void => {
+    if (!mobileMenu || !mobileMenuButton) return;
+    
+    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    
+    if (isExpanded) {
+      // Close menu (slide to left)
+      mobileMenu.style.transform = 'translateY(-100%)';
+      mobileMenu.style.opacity = '0';
+      mobileMenu.style.zIndex = '-100';
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      
+      // Change icon to hamburger
+      mobileMenuButton.innerHTML = `
+        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      `;
+    } else {
+      // Open menu (slide from left)
+      mobileMenu.style.transform = 'translateY(0)';
+      mobileMenuButton.setAttribute('aria-expanded', 'true');
+      mobileMenu.style.opacity = '100';
+      mobileMenu.style.zIndex = '100';
+      // Change icon to X
+      mobileMenuButton.innerHTML = `
+        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      `;
+    }
+  };
 
-        ticking = false;
+  if (mobileMenuButton) {
+    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+  }
+
+  // Mobile close button functionality
+  const mobileCloseButton = document.getElementById('mobile-close-button');
+  if (mobileCloseButton) {
+    mobileCloseButton.addEventListener('click', toggleMobileMenu);
+  }
+
+  // Initialize navigation click handlers
+  const handleNavClick = (e: Event): void => {
+    e.preventDefault();
+    const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+    const targetElement = document.querySelector(targetId || '') as HTMLElement;
+
+    if (targetElement) {
+      const offsetTop = targetElement.offsetTop - offsetValue
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
       });
 
-      ticking = true;
+      // Close mobile menu if open
+      if (mobileMenu && mobileMenuButton) {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        if (isExpanded) {
+          toggleMobileMenu();
+        }
+      }
     }
   };
 
   document.querySelectorAll('.nav-link').forEach((link: Element) => {
-    link.addEventListener('click', (e: Event) => {
-      e.preventDefault();
-      const targetId = (link as HTMLAnchorElement).getAttribute('href');
-      const targetElement = document.querySelector(targetId || '') as HTMLElement;
-
-      if (targetElement) {
-        const scrollTop = window.scrollY;
-        const bannerBottom = banner.offsetTop + banner.offsetHeight;
-        const offsetTop = scrollTop >= bannerBottom
-          ? targetElement.offsetTop - offsetWhenSticky
-          : targetElement.offsetTop - offsetWhenNotSticky;
-
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
-      }
-    });
+    link.addEventListener('click', handleNavClick);
   });
-
-  window.addEventListener('scroll', handleScroll);
 };
 
 const initializeEidolons = (): void => {
@@ -146,6 +175,8 @@ const initializeEidolons = (): void => {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
+  document.body.dataset.path = characterData.path.toLowerCase();
+  document.body.dataset.element = characterData.element.toLowerCase();
   initializePage();
   initializeNavigation();
   initializeEidolons();
