@@ -1,307 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Guiying Yalis - Character Viewer with detailed stats, skills and lore. Designed for Honkai Star Rail fans."
-    />
-    <meta
-      name="keywords"
-      content="Guiying Yalis, Honkai Star Rail, character viewer, fire element, nihility path, gaming"
-    />
-    <meta name="author" content="Victor Godoka" />
-    <meta name="robots" content="index, follow" />
-    <meta property="og:title" content="Guiying Yalis - Character Viewer" />
-    <meta
-      property="og:description"
-      content="Detailed character viewer for Guiying Yalis from Honkai Star Rail with stats, skills, and lore."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="images/alice.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Guiying Yalis - Character Viewer" />
-    <meta
-      name="twitter:description"
-      content="Detailed character viewer for Guiying Yalis from Honkai Star Rail"
-    />
-    <title>Guiying Yalis - Character Viewer | Honkai Star Rail</title>
 
-    <link rel="preload" href="images/alice.png" as="image" />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
-      as="style"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="description"
+    content="Guiying Yalis - Character Viewer with detailed stats, skills and lore. Designed for Honkai Star Rail fans." />
+  <meta name="keywords"
+    content="Guiying Yalis, Honkai Star Rail, character viewer, fire element, nihility path, gaming" />
+  <meta name="author" content="Victor Godoka" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Guiying Yalis - Character Viewer" />
+  <meta property="og:description"
+    content="Detailed character viewer for Guiying Yalis from Honkai Star Rail with stats, skills, and lore." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/alice.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Guiying Yalis - Character Viewer" />
+  <meta name="twitter:description" content="Detailed character viewer for Guiying Yalis from Honkai Star Rail" />
+  <title>Guiying Yalis - Character Viewer | Honkai Star Rail</title>
 
-  <body
-    class="bg-zinc-900 text-white font-['Anuphan'] antialiased"
-    style="font-weight: 500"
-  >
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-red-400 text-white px-4 py-2 rounded z-50"
-    >
-      Skip to main content
-    </a>
+  <link rel="preload" href="images/alice.png" as="image" />
+  <link rel="preload"
+    href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap" as="style" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bebas+Neue&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
 
-    <header>
-      <div
-        id="banner"
-        class="relative h-[550px] flex items-end justify-center"
-        style="
+<body class="bg-zinc-900 text-white font-['Anuphan'] antialiased" style="font-weight: 500">
+  <a id="home"
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 custom-bg text-white px-4 py-2 rounded z-50">
+    Skip to main content
+  </a>
+
+  <header>
+    <div id="banner" class="relative h-[550px] flex items-end justify-center mt-[60px]" style="
           background-image: url('images/alice.png');
           background-size: cover;
           background-position: top;
-        "
-      >
-        <h1
-          id="charName"
-          class="text-red-400 font-bold text-6xl mb-8 z-10 md:mb-0"
-          style="text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)"
-        ></h1>
-        <div
-          class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent"
-        ></div>
+        ">
+      <h1 id="charName" class="custom-text font-bold text-6xl mb-8 z-10 lg:mb-0"
+        style="text-shadow: 0 0 10px rgba(0, 0, 0, 0.5)"></h1>
+      <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-transparent"></div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <div id="header" class="max-w-7xl mx-auto p-6">
+      <nav id="navigation"
+        class="bg-zinc-900 border-b-2 custom-border-color transition-all duration-300 ease-in-out fixed top-0 left-0 right-0 z-50 shadow-lg"
+        role="navigation" aria-label="Main navigation">
+        <div class="flex items-center justify-between p-4">
+          <span class="custom-text font-bold text-lg">Menu</span>
+          <button id="mobile-menu-button"
+            class="text-white custom-hover-text border-2 transition-all duration-200 focus:outline-none custom-focus-text"
+            aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+        <div id="mobile-menu"
+          style="transform: translateY(-100%); opacity: 0; z-index: -100;"
+          class="fixed bg-zinc-900 flex w-full gap-2 h-full lg:h-auto custom-border-color lg:border-b-2 flex-col lg:flex-row visibility-hidden items-center justify-center py-4 font-['Bebas_Neue'] text-2xl transition-all duration-300 ease-in-out">
+          <a href="#home"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Home</a>
+          <a href="#introduction"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Introduction</a>
+          <a href="#stats"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Stats</a>
+          <a href="#skills"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Skills</a>
+          <a href="#traces"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Major Traces</a>
+          <a href="#minortraces"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Minor Traces</a>
+          <a href="#eidolons"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Eidolons</a>
+          <a href="#lc" class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">Light
+            Cone</a>
+          <a href="#about"
+            class="nav-link text-white custom-hover-text custom-hover-border transition-all duration-200 font-medium">About</a>
       </div>
-    </header>
+    </nav>
 
-    <main id="main-content">
-      <div id="home"></div>
-      <div id="header" class="max-w-7xl mx-auto flex flex-col gap-y-4 p-6">
-        <nav
-          id="navigation"
-          class="bg-zinc-900 border-b-2 border-red-400 transition-all duration-300 ease-in-out"
-          role="navigation"
-          aria-label="Main navigation"
-        >
-          <div
-            class="max-w-7xl mx-auto px-2 md:px-6 text-xl font-['Bebas_Neue']"
-          >
-            <div
-              class="grid grid-cols-2 md:flex items-center justify-center md:space-x-8 py-4"
-            >
-              <a
-                href="#home"
-                class="nav-link text-red-400 hover:text-white hover:bg-red-400 md:px-3 rounded transition-colors duration-200 font-medium"
-                aria-current="page"
-                >Home</a
-              >
-              <a
-                href="#introduction"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Introduction</a
-              >
-              <a
-                href="#stats"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Stats</a
-              >
-              <a
-                href="#skills"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Skills</a
-              >
-              <a
-                href="#traces"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Major Traces</a
-              >
-              <a
-                href="#minortraces"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Minor Traces</a
-              >
-              <a
-                href="#eidolons"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Eidolons</a
-              >
-              <a
-                href="#lc"
-                class="nav-link text-white hover:text-red-400 transition-colors duration-200 font-medium"
-                >Light Cone</a
-              >
-            </div>
+      <section class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <article class="flex flex-col gap-4">
+          <header id="introduction" class="flex items-center gap-2 border-b-2 custom-border-color">
+            <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Introduction</h2>
+          </header>
+
+          <div class="p-2" id="description" aria-label="Character description"></div>
+        </article>
+
+        <article class="flex flex-col gap-4 mb-4">
+          <header class="flex items-center gap-2 border-b-2 custom-border-color">
+            <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+            <h2 class="text-3xl font-['Bebas_Neue']">Stats</h2>
+          </header>
+
+          <div class="bg-[#2c2d33] border-2 border-[#33343a] p-4" id="stats" role="region"
+            aria-label="Character statistics">
+            <p class="text-lg font-bold my-2">Level 80 stats</p>
           </div>
-        </nav>
+        </article>
+      </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <article class="flex flex-col gap-4">
-            <header
-              id="introduction"
-              class="flex items-center gap-2 border-b-2 border-red-400"
-            >
-              <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-              <h2 class="text-3xl font-['Bebas_Neue']">Introduction</h2>
-            </header>
+      <section class="mb-4">
+        <header class="flex mb-4 items-center gap-2 border-b-2 custom-border-color">
+          <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+          <h2 class="text-3xl font-['Bebas_Neue']">Skills</h2>
+        </header>
 
-            <div
-              class="p-2"
-              id="description"
-              aria-label="Character description"
-            ></div>
-          </article>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-4" id="skills" role="region"
+          aria-label="Character skills"></div>
+      </section>
 
-          <article class="flex flex-col gap-4">
-            <header
-              class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-            >
-              <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-              <h2 class="text-3xl font-['Bebas_Neue']">Stats</h2>
-            </header>
+      <section class="mb-4">
+        <header class="flex mb-4 items-center gap-2 border-b-2 custom-border-color">
+          <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+          <h2 class="text-3xl font-['Bebas_Neue']">Major Traces</h2>
+        </header>
 
-            <div
-              class="bg-[#2c2d33] border-2 border-[#33343a] p-4"
-              id="stats"
-              role="region"
-              aria-label="Character statistics"
-            >
-              <p class="text-lg font-bold my-2">Level 80 stats</p>
-            </div>
-          </article>
-        </section>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-4" id="traces" role="region"
+          aria-label="Major traces"></div>
+      </section>
 
-        <section>
-          <header
-            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-          >
-            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-            <h2 class="text-3xl font-['Bebas_Neue']">Skills</h2>
-          </header>
+      <section class="mb-4">
+        <header class="flex mb-4 items-center gap-2 border-b-2 custom-border-color">
+          <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+          <h2 class="text-3xl font-['Bebas_Neue']">Minor Traces (Total)</h2>
+        </header>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4"
-            id="skills"
-            role="region"
-            aria-label="Character skills"
-          ></div>
-        </section>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-4" id="minortraces" role="region"
+          aria-label="Minor traces"></div>
+      </section>
 
-        <section>
-          <header
-            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-          >
-            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-            <h2 class="text-3xl font-['Bebas_Neue']">Major Traces</h2>
-          </header>
+      <section class="mb-4">
+        <header class="flex mb-4 items-center gap-2 border-b-2 custom-border-color">
+          <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+          <h2 class="text-3xl font-['Bebas_Neue']">Eidolons</h2>
+        </header>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
-            id="traces"
-            role="region"
-            aria-label="Major traces"
-          ></div>
-        </section>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-4" id="eidolons" role="region" aria-label="Eidolons">
+        </div>
+      </section>
 
-        <section>
-          <header
-            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-          >
-            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-            <h2 class="text-3xl font-['Bebas_Neue']">Minor Traces (Total)</h2>
-          </header>
+      <section class="mb-4">
+        <header id="lc" class="flex mb-4 items-center gap-2 border-b-2 custom-border-color">
+          <div class="w-4 h-4 custom-bg rounded" aria-hidden="true"></div>
+          <h2 class="text-3xl font-['Bebas_Neue']">Light Cones</h2>
+        </header>
 
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
-            id="minortraces"
-            role="region"
-            aria-label="Minor traces"
-          ></div>
-        </section>
-
-        <section>
-          <header
-            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-          >
-            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-            <h2 class="text-3xl font-['Bebas_Neue']">Eidolons</h2>
-          </header>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-4"
-            id="eidolons"
-            role="region"
-            aria-label="Eidolons"
-          ></div>
-        </section>
-
-        <section>
-          <header
-            id="lc"
-            class="flex mb-4 items-center gap-2 border-b-2 border-red-400"
-          >
-            <div class="w-4 h-4 bg-red-400 rounded" aria-hidden="true"></div>
-            <h2 class="text-3xl font-['Bebas_Neue']">Light Cones</h2>
-          </header>
-
-          <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4"
-            id="lcs"
-            role="region"
-            aria-label="Light cones"
-          ></div>
-        </section>
-      </div>
-    </main>
-
-    <footer class="bg-[#1a1b1f] border-t-2 border-[#33343a] mt-16">
-      <div class="max-w-7xl mx-auto px-4 py-8">
-        <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="flex items-center space-x-6 mb-4 md:mb-0">
-            <a
-              href="https://github.com/victorgodoka"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2"
-              aria-label="Visit GitHub profile"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                />
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://ko-fi.com/godokadev"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-zinc-300 hover:text-red-400 transition-colors duration-200 flex items-center space-x-2"
-              aria-label="Support on Ko-fi"
-            >
-              <img
-                src="https://storage.ko-fi.com/cdn/logomarkLogo.png"
-                alt="ko-fi"
-                class="w-6 h-6"
-              />
-              <span>Ko-fi</span>
-            </a>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-4" id="lcs" role="region" aria-label="Light cones">
+        </div>
+      </section>
           </div>
-          <div class="text-zinc-400 text-sm">
-            <p>
-              &copy; <span id="year"></span> Victor Godoka. All rights reserved.
-              Made with ❤️
-            </p>
-          </div>
+  </main>
+
+  <footer class="bg-[#1a1b1f] border-t-2 border-[#33343a] mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+      <div class="flex flex-col lg:flex-row justify-between items-center">
+        <div class="flex items-center space-x-6 mb-4 lg:mb-0">
+          <a href="https://github.com/victorgodoka" target="_blank" rel="noopener noreferrer"
+            class="text-zinc-300 custom-hover-text border-2 transition-all duration-200 flex items-center space-x-2"
+            aria-label="Visit GitHub profile">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://ko-fi.com/godokadev" target="_blank" rel="noopener noreferrer"
+            class="text-zinc-300 custom-hover-text border-2 transition-all duration-200 flex items-center space-x-2"
+            aria-label="Support on Ko-fi">
+            <img src="https://storage.ko-fi.com/cdn/logomarkLogo.png" alt="ko-fi" class="w-6 h-6" />
+            <span>Ko-fi</span>
+          </a>
+        </div>
+        <div class="text-zinc-400 text-sm">
+          <p>
+            &copy; <span id="year"></span> Victor Godoka. All rights reserved.
+            Made with ❤️
+          </p>
         </div>
       </div>
-    </footer>
+      </div>
+  </footer>
 
-    <script type="module" src="js/script.js"></script>
-  </body>
+  <script type="module" src="js/script.js"></script>
+</body>
+
 </html>

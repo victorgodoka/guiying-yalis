@@ -1,1 +1,234 @@
 @import "tailwindcss";
+
+/* Element Color Variables */
+:root {
+  --fire: #ee473d;
+  --ice: #2692d3;
+  --physical: #979797;
+  --quantum: #7e74eb;
+  --imaginary: #e6d863;
+  --lightning: #c65ade;
+  --wind: #61cf93;
+}
+
+.custom-hover-border {
+  position: relative;
+}
+
+.custom-hover-border::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s ease-in-out;
+}
+
+.custom-hover-border:hover::after {
+  width: 100%;
+}
+
+/* Custom Classes for Element Colors */
+[data-element='fire'] .custom-bg {
+  background-color: var(--fire);
+}
+
+[data-element='fire'] .custom-text {
+  color: var(--fire);
+}
+
+[data-element='fire'] .custom-hover-border::after {
+  background-color: var(--fire);
+}
+
+[data-element='fire'] .custom-border-color {
+  border-color: var(--fire);
+}
+
+[data-element='fire'] .custom-hover-text:hover {
+  color: var(--fire);
+}
+
+[data-element='fire'] .custom-hover-bg:hover {
+  background-color: var(--fire);
+}
+
+[data-element='fire'] .custom-focus-text:focus {
+  color: var(--fire);
+}
+
+/* Ice Element */
+[data-element='ice'] .custom-bg {
+  background-color: var(--ice);
+}
+
+[data-element='ice'] .custom-text {
+  color: var(--ice);
+}
+
+[data-element='ice'] .custom-hover-border::after {
+  background-color: var(--ice);
+}
+
+[data-element='ice'] .custom-border-color {
+  border-color: var(--ice);
+}
+
+[data-element='ice'] .custom-hover-text:hover {
+  color: var(--ice);
+}
+
+[data-element='ice'] .custom-hover-bg:hover {
+  background-color: var(--ice);
+}
+
+[data-element='ice'] .custom-focus-text:focus {
+  color: var(--ice);
+}
+
+/* Physical Element */
+[data-element='physical'] .custom-bg {
+  background-color: var(--physical);
+}
+
+[data-element='physical'] .custom-text {
+  color: var(--physical);
+}
+
+[data-element='physical'] .custom-hover-border::after {
+  background-color: var(--physical);
+}
+
+[data-element='physical'] .custom-border-color {
+  border-color: var(--physical);
+}
+
+[data-element='physical'] .custom-hover-text:hover {
+  color: var(--physical);
+}
+
+[data-element='physical'] .custom-hover-bg:hover {
+  background-color: var(--physical);
+}
+
+[data-element='physical'] .custom-focus-text:focus {
+  color: var(--physical);
+}
+
+/* Quantum Element */
+[data-element='quantum'] .custom-bg {
+  background-color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-text {
+  color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-hover-border::after {
+  background-color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-border-color {
+  border-color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-hover-text:hover {
+  color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-hover-bg:hover {
+  background-color: var(--quantum);
+}
+
+[data-element='quantum'] .custom-focus-text:focus {
+  color: var(--quantum);
+}
+
+/* Imaginary Element */
+[data-element='imaginary'] .custom-bg {
+  background-color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-text {
+  color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-hover-border::after {
+  background-color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-border-color {
+  border-color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-hover-text:hover {
+  color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-hover-bg:hover {
+  background-color: var(--imaginary);
+}
+
+[data-element='imaginary'] .custom-focus-text:focus {
+  color: var(--imaginary);
+}
+
+/* Lightning Element */
+[data-element='lightning'] .custom-bg {
+  background-color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-text {
+  color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-hover-border::after {
+  background-color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-border-color {
+  border-color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-hover-text:hover {
+  color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-hover-bg:hover {
+  background-color: var(--lightning);
+}
+
+[data-element='lightning'] .custom-focus-text:focus {
+  color: var(--lightning);
+}
+
+/* Wind Element */
+[data-element='wind'] .custom-bg {
+  background-color: var(--wind);
+}
+
+[data-element='wind'] .custom-text {
+  color: var(--wind);
+}
+
+[data-element='wind'] .custom-hover-border::after {
+  background-color: var(--wind);
+}
+
+[data-element='wind'] .custom-border-color {
+  border-color: var(--wind);
+}
+
+[data-element='wind'] .custom-hover-text:hover {
+  color: var(--wind);
+}
+
+[data-element='wind'] .custom-hover-bg:hover {
+  background-color: var(--wind);
+}
+
+[data-element='wind'] .custom-focus-text:focus {
+  color: var(--wind);
+}
+
