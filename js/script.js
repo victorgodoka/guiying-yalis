@@ -3,6 +3,8 @@
   // src/data.ts
   var characterData = {
     name: "Guiying Yalis",
+    path: "Nihility",
+    element: "Fire",
     stats: {
       HP: 1023,
       ATK: 617,
@@ -10,41 +12,59 @@
       SPD: 102
     },
     description: `
-      <span class="font-bold text-red-400">Guiying Yalis</span> is a 5\u2605 character from the <span
-            class="font-bold text-red-400">Fire</span> element who follows the <span
-            class="font-bold text-[#7e74eb]">Path
-            of Nihility</span>. Bearing the name of a forgotten dynasty, <span class="font-bold text-red-400">Guiying</span> dances through battlefields like a flame-kissed petal caught in the wind. Her elegance hides a dangerous mastery over Burn and Sunburn \u2014 curses that blossom into agony. To fight her is to be trapped in a season of fire and fleeting beauty, where spring never truly ends.
-      `,
+      <p>Guiying Yalis is a 5\u2605 character from the Fire element who follows the Path of Nihility. Guiying Yalis, heir to a name lost with a dying world, moves through Xianzhou like a memory wrapped in silk and flame. Composed and distant, she speaks little \u2014 but her eyes hold centuries of sorrow, and her smile never reaches them. The Cloud Knights say she is serenity incarnate, yet those who have seen her fight know better: in battle, she becomes a storm of grace and ruin, a dancer whose steps leave scorched earth in their wake.</p>
+      <p></p>
+  `,
     lightCones: [
       {
         name: "Dance Beneath Crimson Blossoms",
         image: "images/lc.png",
         tier: "\u2B50\u2B50\u2B50\u2B50\u2B50",
-        lore: [
-          "In the floating gardens of Xianzhou, where sakura trees bloom not once a year, but with every breath of wind, there lived a girl whose fan bore both fire and fragrance.",
-          "They called her Guiying Yalis, the Crimson Petal. Her steps were too soft for war, her gaze too serene for vengeance \u2014 and yet, the world would soon know her fury.",
-          "Long ago, she danced beneath the tutelage of the Arbiter-General himself, Jing Yuan, who taught her not the weight of swords, but the art of timing.",
-          "A blade is swift, he once told her,",
-          "But a flame is patient \u2014 and far more enduring.",
-          "She listened. She learned.",
-          "And now, she fought.",
-          "On a night where no stars shone above Xianzhou, shadows fell upon a distant border village. Mara-stricken beasts crawled from fractured dreams, gnawing at the roots of ancient plum trees. Screams rose like incense.",
-          "Then \u2014 silence.",
-          "A single gust stirred the sakura trees. A fan unfolded.",
-          "From the darkness, she stepped. Her crimson ribbons flowed like brushstrokes in the air, her platinum hair catching the moonlight. The moment her feet touched the earth, flames followed like obedient disciples.",
-          "She spun.",
-          "And the petals obeyed.",
-          "Fire licked at the enemies' limbs \u2014 not with rage, but with ritual. Each Burn a calligraphy mark, each Sunburn a final signature.",
-          "They writhed. She danced.",
-          "Let spring bloom in ash, she whispered,",
-          "And may all things cruel learn to fear beauty.",
-          "When the final ember died, and the sakura once again kissed the soil in silence, she sheathed her fan with the grace of an empress.",
-          "She did not stay for praise. She never did.",
-          "For Guiying Yalis was no hero.",
-          "She was a season \u2014 brief, radiant, and unforgettable.",
-          "And like spring in Xianzhou\u2026",
-          "She always returned when the world grew cold."
-        ],
+        lore: `
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>In the drifting realms of Xianzhou, where cherry blossoms bloom in defiance of time, there danced a woman whose name carried the echoes of a fallen dynasty \u2014 Guiying Yalis.</p>
+          
+          <p>She did not march into war like a soldier.</p>
+          
+          <p>She drifted into battle like spring wind through scorched earth \u2014<br>
+          elegant, effortless\u2026 inevitable.</p>
+          
+          <p>Burn and Sunburn.</p>
+          
+          <p>Two curses masked in beauty.</p>
+          
+          <p>One seared the flesh. The other scorched the soul.</p>
+          
+          <p>And both answered her call.</p>
+          
+          <p>Her enemies never saw her wrath \u2014 only the petals she left behind.</p>
+          
+          <p>Crimson, gold, ash.</p>
+          
+          <p>Once, under a moonless sky, shadows clawed at the gates of a distant Xianzhou village. The stars had turned their gaze. The night braced for ruin.</p>
+          
+          <p>Then came the fan.</p>
+          
+          <p>Unfurled in silence, it shimmered with embers and memory. With a single step, she set the wind ablaze. Flames curled like dancers around her \u2014 patient, merciless. The cursed fire she summoned did not roar. It whispered.</p>
+          
+          <p>Those touched by her art did not burn.</p>
+          
+          <p>They withered.</p>
+          
+          <p>One breath at a time.</p>
+          
+          <p>When the ashes settled and the petals floated softly down, she was already gone \u2014<br>
+          like spring, fleeting yet eternal.</p>
+          
+          <p>They called her many things: Flame Dancer. Crimson Petal. Cursebearer.</p>
+          
+          <p>But to those who survived\u2026</p>
+          
+          <p>She was a season.</p>
+          
+          <p>And in her presence, spring never ended.</p>
+        </div>
+      `,
         effect: `Increases the wearer's Effect Hit Rate by 36/48/60/72/84%. When the wearer inflicts DoT, gain 1 stack of Solar Bloom (max 3 stacks). Each stack increases DoT dealt by 10/15/20/25/25%. At 3 stacks, the wearer's SPD increases by 10/12.5/15/17.5/20%. Additionally, when the wearer deals Fire DMG to enemies, there is a 75% base chance to extend all DoT and debuffs effects currently on the field by 1 turn.`,
         stats: {
           HP: 1058,
@@ -56,32 +76,55 @@
         name: "Embers of Spring, Cradled in Song",
         image: "images/lc2.png",
         tier: "\u2B50\u2B50\u2B50\u2B50",
-        lore: [
-          "In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor \u2014 shadows of sakura that bloomed only in the spring of memory.",
-          "There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.",
-          "Nestled in her arms was a girl no older than four, fast asleep \u2014 her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.",
-          "She was no child of hers by blood.",
-          "But war had a way of making orphans.",
-          "And Guiying, the Crimson Petal, had a heart that burned not only with flame\u2026 but with compassion.",
-          `"You are the first light," she whispered, stroking the child's hair,`,
-          '"A bud before the bloom. Rest now. The world can wait."',
-          "As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum \u2014 soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees\u2026 before fate set her on the path of fire.",
-          "Her voice, low and warm, danced like incense through the air:",
-          '"Close your eyes, my springtime star,',
-          "The moon will guard you from afar.",
-          "Drift like petals, float like flame,",
-          `Tomorrow's wind will know your name\u2026"`,
-          "The child stirred, pressing closer.",
-          "Guiying smiled.",
-          "In that moment, she was not the feared flame that scorched the battlefield.",
-          "Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.",
-          "She was simply Guiying \u2014",
-          "A woman who bore the weight of countless battles\u2026",
-          "And still found time to sing to a sleeping soul.",
-          "Because even in Xianzhou, where stars drift and wars rage\u2026",
-          "The truest strength is found not in fire or fury \u2014",
-          "But in the quiet rhythm of a lullaby."
-        ],
+        lore: `
+        <div class="space-y-4 text-gray-300 leading-relaxed">
+          <p>In the quiet hours between dusk and dream, the grand hall of the Palace of Astrum fell into a hush. Light streamed through carved wooden screens, painting golden blossoms across the floor \u2014 shadows of sakura that bloomed only in the spring of memory.</p>
+          
+          <p>There, beneath the crimson pillars etched with tales of centuries, Guiying Yalis sat cross-legged, her robes cascading like flowing petals, red and lavender swirled in elegant harmony.</p>
+          
+          <p>Nestled in her arms was a girl no older than four, fast asleep \u2014 her silver hair tied with a ribbon, her tiny form wrapped in warmth and trust.</p>
+          
+          <p>She was no child of hers by blood.</p>
+          
+          <p>But war had a way of making orphans.</p>
+          
+          <p>And Guiying, the Crimson Petal, had a heart that burned not only with flame\u2026 but with compassion.</p>
+          
+          <p>"You are the first light," she whispered, stroking the child's hair,<br>
+          "A bud before the bloom. Rest now. The world can wait."</p>
+          
+          <p>As the breeze outside carried a few wayward blossoms past the open window, Guiying began to hum \u2014 soft at first, then laced with ancient melody. A lullaby her mother once sang beneath the same cherry trees\u2026 before fate set her on the path of fire.</p>
+          
+          <p>Her voice, low and warm, danced like incense through the air:</p>
+          
+          <div class="pl-4 border-l-2 custom-border-color my-4">
+            <p>"Close your eyes, my springtime star,<br>
+            The moon will guard you from afar.<br>
+            Drift like petals, float like flame,<br>
+            Tomorrow's wind will know your name\u2026"</p>
+          </div>
+          
+          <p>The child stirred, pressing closer.</p>
+          
+          <p>Guiying smiled.</p>
+          
+          <p>In that moment, she was not the feared flame that scorched the battlefield.</p>
+          
+          <p>Not the student of Jing Yuan, nor the wielder of the Sunburning Fan.</p>
+          
+          <p>She was simply Guiying \u2014</p>
+          
+          <p>A woman who bore the weight of countless battles\u2026</p>
+          
+          <p>And still found time to sing to a sleeping soul.</p>
+          
+          <p>Because even in Xianzhou, where stars drift and wars rage\u2026</p>
+          
+          <p>The truest strength is found not in fire or fury \u2014</p>
+          
+          <p>But in the quiet rhythm of a lullaby.</p>
+        </div>
+      `,
         effect: `Increases the wearer's Break Effect by 16/20/24/28/32% and DoT dealt by 24/30/36/42/48%. After inflicting damage with the wearer's Ultimate or Follow-Up ATK, restores 4/8/12/16/20 Energy and increases ATK by 12/18/24/30/36% for 2 turns.`,
         stats: {
           HP: 948,
@@ -225,29 +268,34 @@
         energyBreak: null
       }
     ],
-    lore: {
-      history: "",
-      personality: "",
-      appearance: "",
-      background: "",
-      relationship: "",
-      other: ""
-    }
+    lore: `
+    <div class="space-y-4 text-gray-300 leading-relaxed">
+      <p>In the age before ruin, Guiying Yalis lived beneath gardens of endless spring. Her world bloomed in peace \u2014 a distant star ruled by a dynasty now lost to time. When the Denizens of Abundance arrived, they promised miracles: illness cured overnight, crops that never withered, and life that endured beyond natural death.</p>
+      <p>But what began as salvation soon revealed itself as rot. Life unending became a curse. Minds twisted. Bodies refused to die. The planet fell, not with flame or war, but with decay, madness, and torment without end.</p>
+      <p>Guiying remembers all of it.</p>
+      <p>She remembers the smiles that became screams. The warmth that turned cold. The moment she ran with her family through streets collapsing under the weight of false immortality. And the moment she lost them \u2014 separated by a sudden Mara-born incursion, their fates left unknown.</p>
+      <p>Alone, she drifted through the stars until the Cloud Knights of Xianzhou found her \u2014 a lone girl cradling the last fan of her fallen house. They took her to the Xianzhou Luofu, not as a prisoner, but as a refugee of something far worse: a survivor of the Abundance\u2019s unchecked mercy.</p>
+      <p>There, Guiying found a new life among orphans of war and children scarred like her. She saw herself in their silence, their anger, their loneliness. And in that reflection, she found resolve.</p>
+      <p>Under the tutelage of General Jing Yuan, she trained not with brute force, but with grace and control. He taught her that flame, like memory, must be tempered. That fire could destroy \u2014 but also protect.</p>
+      <p>Today, Guiying fights for Xianzhou, not as a refugee, but as its guardian\u2014one who remembers the cost of failure far too clearly. Beneath drifting petals, she dances on battlefields, determined to shield her new home from the horrors she knows intimately. And perhaps, one day, among the countless stars, she will find a trace of those she lost.</p>
+      <p>For Guiying Yalis remembers. And she carries that memory as both burden and strength, forever.</p>
+    </div>
+  `
   };
 
   // src/utils.ts
   var formatDescription = (text) => {
     if (!text) return "";
-    return text.replace(/\+?\d+(\.\d+)?%?/g, (match) => {
-      return `<span class='text-[#eec554]' style='font-weight: 800;'>${match}</span>`;
-    }).replace(/Fire DMG/g, `<span class='text-red-400'>Fire DMG</span>`);
+    return text.replace(/\+?\d+(\.\d+)?%?★?\/?/g, (match) => {
+      return `<span style='color: #eec554; font-weight: 800;'>${match}</span>`;
+    }).replace(/Fire DMG/g, `<span style='color: #ee473d'>Fire DMG</span>`).replace(/Guiying/g, `<span style='color: #ee473d'>Guiying</span>`).replace(/Yalis/g, `<span style='color: #ee473d'>Yalis</span>`).replace(/Path of Nihility/g, `<span style='color: #7e74eb'>Yalis</span>`);
   };
 
   // src/templates.ts
   var cardTemplate = (data) => `
   <article class="bg-[#2c2d33] border-[#33343a] border-2" ${"isEidolon" in data && data.isEidolon ? `data-eidolon="${data.type.toLowerCase()}"` : ""}>
     <div class="border-[#33343a] border-b flex items-center">
-      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.type}</div>
+      <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.type}</div>
       <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
         <h3 class="text-xl opacity-90" style="font-weight: 800;">${data.name}</h3>
         ${data.tg ? `<p class="text-sm opacity-75" style="font-weight: 400;">${data.tg}</p>` : ""}
@@ -262,7 +310,7 @@
     </div>
     ${"enhanced" in data && data.enhanced ? `
       <div class="border-[#33343a] border-t-2 flex items-center">
-        <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.enhanced.type}</div>
+        <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">${data.enhanced.type}</div>
         <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
           <h4 class="text-xl opacity-90" style="font-weight: 800;">${data.enhanced.name}</h4>
           ${data.enhanced.tg ? `<p class="text-sm opacity-75" style="font-weight: 400;">${data.enhanced.tg}</p>` : ""}
@@ -281,7 +329,7 @@
   var minorTraceTemplate = (trace) => `
   <div class="flex items-center justify-center gap-2 border-[#33343a] border bg-[#2c2d33] w-full p-2 text-lg">
     <img src="${trace.icon}" alt="${trace.type}" class="w-8 h-8">
-    <p>${formatDescription(`${trace.type} ${trace.value}`)}</p>
+    <p>${`${trace.type} ${trace.value}`}</p>
   </div>
 `;
   var statsTemplate = (stats, isLightCone = false) => `
@@ -320,7 +368,7 @@
   <article class="bg-[#2c2d33] border-[#33343a] border-2 relative">
     <img src="images/nihility.webp" alt="Light cone path" class="w-8 absolute z-50 right-8 top-2 opacity-40">
     <div class="border-[#33343a] border-b flex items-center">
-      <div class="font-semibold text-[#353535] flex items-center justify-center bg-red-400 w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
+      <div class="font-semibold text-[#353535] flex items-center justify-center custom-bg w-[100px] h-[60px] text-center py-2 px-2" style="font-weight: 800;">Light Cone</div>
       <div class="bg-zinc-750 px-4 flex flex-col justify-center gap-1">
         <h3 class="text-xl opacity-90" style="font-weight: 800;">${lightCone.name}</h3>
         <p class="text-sm" style="font-weight: 400;">${lightCone.tier}</p>
@@ -336,7 +384,7 @@
       <div class="grid grid-cols-2 gap-2">
         <img src="${lightCone.image}" alt="${lightCone.name}" class="w-full h-auto object-cover">
         <div class="text-sm space-y-2">
-          ${lightCone.lore.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+          ${lightCone.lore}
         </div>
       </div>
     </div>
@@ -345,7 +393,7 @@
 
   // src/script.ts
   var createRenderMap = () => ({
-    description: () => characterData.description,
+    description: () => formatDescription(characterData.description) || "",
     skills: () => characterData.skills.map(cardTemplate).join(""),
     traces: () => characterData.traces.map(cardTemplate).join(""),
     minorTraces: () => characterData.minorTraces.map(minorTraceTemplate).join(""),
@@ -382,49 +430,68 @@
   var initializeNavigation = () => {
     const navigation = document.getElementById("navigation");
     const banner = document.getElementById("banner");
+    const mobileMenuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
     if (!navigation || !banner) return;
     const scrollValues = {
-      mobile: [180, 320],
-      desktop: [130, 208]
+      mobile: 130,
+      desktop: 300
     };
     const isDesktop = window.innerWidth > 768;
-    const [offsetWhenSticky, offsetWhenNotSticky] = scrollValues[isDesktop ? "desktop" : "mobile"];
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const bannerBottom = banner.offsetTop + banner.offsetHeight;
-          const scrollTop = window.scrollY;
-          const navigationFixedClasses = ["fixed", "top-0", "left-0", "right-0", "z-50", "shadow-lg"];
-          if (scrollTop >= bannerBottom) {
-            navigation.classList.add(...navigationFixedClasses);
-            navigation.classList.remove("relative");
-          } else {
-            navigation.classList.remove(...navigationFixedClasses);
-            navigation.classList.add("relative");
-          }
-          ticking = false;
+    const offsetValue = scrollValues[isDesktop ? "desktop" : "mobile"];
+    const toggleMobileMenu = () => {
+      if (!mobileMenu || !mobileMenuButton) return;
+      const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+      if (isExpanded) {
+        mobileMenu.style.transform = "translateY(-100%)";
+        mobileMenu.style.opacity = "0";
+        mobileMenu.style.zIndex = "-100";
+        mobileMenuButton.setAttribute("aria-expanded", "false");
+        mobileMenuButton.innerHTML = `
+        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      `;
+      } else {
+        mobileMenu.style.transform = "translateY(0)";
+        mobileMenuButton.setAttribute("aria-expanded", "true");
+        mobileMenu.style.opacity = "100";
+        mobileMenu.style.zIndex = "100";
+        mobileMenuButton.innerHTML = `
+        <svg style="width: 24px; height: 24px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      `;
+      }
+    };
+    if (mobileMenuButton) {
+      mobileMenuButton.addEventListener("click", toggleMobileMenu);
+    }
+    const mobileCloseButton = document.getElementById("mobile-close-button");
+    if (mobileCloseButton) {
+      mobileCloseButton.addEventListener("click", toggleMobileMenu);
+    }
+    const handleNavClick = (e) => {
+      e.preventDefault();
+      const targetId = e.currentTarget.getAttribute("href");
+      const targetElement = document.querySelector(targetId || "");
+      if (targetElement) {
+        const offsetTop = targetElement.offsetTop - offsetValue;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth"
         });
-        ticking = true;
+        if (mobileMenu && mobileMenuButton) {
+          const isExpanded = mobileMenuButton.getAttribute("aria-expanded") === "true";
+          if (isExpanded) {
+            toggleMobileMenu();
+          }
+        }
       }
     };
     document.querySelectorAll(".nav-link").forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const targetId = link.getAttribute("href");
-        const targetElement = document.querySelector(targetId || "");
-        if (targetElement) {
-          const scrollTop = window.scrollY;
-          const bannerBottom = banner.offsetTop + banner.offsetHeight;
-          const offsetTop = scrollTop >= bannerBottom ? targetElement.offsetTop - offsetWhenSticky : targetElement.offsetTop - offsetWhenNotSticky;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth"
-          });
-        }
-      });
+      link.addEventListener("click", handleNavClick);
     });
-    window.addEventListener("scroll", handleScroll);
   };
   var initializeEidolons = () => {
     document.querySelectorAll("[data-eidolon]").forEach((eidolonCard) => {
@@ -452,6 +519,8 @@
     });
   };
   document.addEventListener("DOMContentLoaded", () => {
+    document.body.dataset.path = characterData.path.toLowerCase();
+    document.body.dataset.element = characterData.element.toLowerCase();
     initializePage();
     initializeNavigation();
     initializeEidolons();
